@@ -52,14 +52,16 @@
                         </tr>
                       </thead>
                       <tbody>
+                      <?php $nomor = 1; ?>
                         <?php foreach($artikel as $ar){ ?>
                           <tr>
-                            <td><?php echo $ar->nomor ?></td>
+                            <td><?php echo $nomor ?></td>
                             <td><?php echo $ar->judul ?></td>
                             <td><?php echo $ar->tanggal ?></td>
                             <td><?php echo $ar->kategori ?></td>
                             <td>
-                              <a href="<?php echo base_url(); ?>artikel/detail_artikel/<?php echo $ar->id; ?>" data-toggle="tooltip" title="Detail"><button class="btn btn-xs btn-success"><i class="fa fa-search-plus"></i> </button></a>
+                              <a href="<?php echo base_url(); ?>artikel/detail_artikel/<?php echo $ar->id; ?>" data-toggle="tooltip"
+                                 title="Detail"><button class="btn btn-xs btn-success"><i class="fa fa-search-plus"></i> </button></a>
                               <a href="#edit<?php echo $ar->id; ?>" data-toggle="modal"><button class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> </button></a>
                               <div id="edit<?php echo $ar->id; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -82,21 +84,24 @@
                                                 <div class="form-group">
                                                   <label class="col-lg-2 control-label">ID</label>
                                                   <div class="col-lg-5">
-                                                    <input type="text" name="id" id="id" class="form-control" placeholder="<?php echo $ar->id; ?>" value="<?php echo $ar->id; ?>" readonly="readonly">
+                                                    <input type="text" name="id" id="id" class="form-control"
+                                                           placeholder="<?php echo $ar->id; ?>" value="<?php echo $ar->id; ?>" readonly="readonly">
                                                   </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                   <label class="col-lg-2 control-label">Judul</label>
                                                   <div class="col-lg-5">
-                                                    <input type="text" name="judul" id="judul" class="form-control" placeholder="<?php echo $ar->judul; ?>" value="<?php echo $ar->judul; ?>">
+                                                    <input type="text" name="judul" id="judul" class="form-control"
+                                                           placeholder="<?php echo $ar->judul; ?>" value="<?php echo $ar->judul; ?>">
                                                   </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                   <label class="col-lg-2 control-label">Kategori</label>
                                                   <div class="col-lg-5">
-                                                    <input type="text" name="kategori" id="kategori" class="form-control" placeholder="<?php echo $ar->kategori; ?>" value="<?php echo $ar->kategori; ?>">
+                                                    <input type="text" name="kategori" id="kategori" class="form-control"
+                                                           placeholder="<?php echo $ar->kategori; ?>" value="<?php echo $ar->kategori; ?>">
                                                   </div>
                                                 </div>
 
@@ -121,10 +126,11 @@
                                   </div>
                                 </div>
                               </div>
-                              <a href="<?php echo base_url(); ?>artikel/hapus_artikel/<?php echo $ar->id ?>"><button class="btn btn-xs btn-danger" data-toggle="tooltip" title="Hapus"><i class="fa fa-times"></i> </button></a>
+                              <a href="<?php echo base_url(); ?>artikel/hapus_artikel/<?php echo $ar->id ?>">
+                                <button class="btn btn-xs btn-danger" data-toggle="tooltip" title="Hapus"><i class="fa fa-times"></i> </button></a>
                             </td>
                           </tr>
-                          <?php } ?>
+                          <?php  $nomor = $nomor + 1 ;} ?>
                         </tbody>
 
                       </table>

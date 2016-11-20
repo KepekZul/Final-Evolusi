@@ -52,9 +52,10 @@
                         </tr>
                       </thead>
                       <tbody>
+                      <?php $nomor = 1; ?>
                         <?php foreach($berita as $ar){ ?>
                           <tr>
-                            <td><?php echo $ar->nomor ?></td>
+                            <td><?php echo $nomor ?></td>
                             <td><?php echo $ar->judul ?></td>
                             <td><?php echo $ar->tanggal ?></td>
                             <td><?php echo $ar->kategori ?></td>
@@ -124,7 +125,7 @@
                               <a href="<?php echo base_url(); ?>berita/hapus_berita/<?php echo $ar->id ?>"><button class="btn btn-xs btn-danger" data-toggle="tooltip" title="Hapus"><i class="fa fa-times"></i> </button></a>
                             </td>
                           </tr>
-                          <?php } ?>
+                          <?php  $nomor = $nomor + 1 ;} ?>
                         </tbody>
 
                       </table>

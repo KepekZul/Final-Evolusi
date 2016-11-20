@@ -56,16 +56,16 @@
                           </tr>
                         </thead>
                         <tbody>
+                          <?php $nomor = 1; ?>
                           <?php foreach($trainer as $ar){ ?>
                             <tr>
-                              <td><?php echo $ar->nomor ?></td>
+                              <td><?php echo $nomor ?></td>
                               <td><?php echo $ar->nama ?></td>
                               <td><?php echo $ar->nrp ?></td>
                               <td><?php echo $ar->angkatan ?></td>
                               <td><?php echo $ar->jurusan."/".$ar->fakultas ?></td>
                               <td><?php echo $ar->email ?></td>
                               <td>
-                                <!-- <a href="<?php echo base_url(); ?>artikel/detail_artikel/<?php echo $ar->id; ?>" data-toggle="tooltip" title="Detail"><button class="btn btn-xs btn-success"><i class="fa fa-search-plus"></i> </button></a> -->
                                 <a href="#detail<?php echo $ar->id; ?>" data-toggle="modal"><button class="btn btn-xs btn-success"><i class="fa fa-search-plus"></i> </button></a>
                                 <div id="detail<?php echo $ar->id; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog">
@@ -309,7 +309,7 @@
 
                                 </td>
                               </tr>
-                              <?php } ?>
+                              <?php  $nomor = $nomor + 1 ;} ?>
                             </tbody>
 
                           </table>

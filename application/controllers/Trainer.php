@@ -5,6 +5,7 @@ class Trainer extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->model('Trainer_model');
 		$role = $this->session->userdata('role');
 		if ($role == 'trainer') {
 			$this->load->view('include/header_trainer');
@@ -15,10 +16,9 @@ class Trainer extends CI_Controller {
 			$this->load->view('include/menu_admin');
 		}
 		elseif ($role == NULL) {
-			header('Location: ../login');
+			$this->load->view('admin/login');
 		}
 
-		$this->load->model('Trainer_model');
 		$data = array(
 			'trainer' => $this->Trainer_model->list_all_trainer()
 		 );
@@ -30,11 +30,11 @@ class Trainer extends CI_Controller {
 		elseif ($role == 'admin') {
 			$this->load->view('include/footer_admin');
 		}
-
 	}
 
 	public function data_diri()
 	{
+		$this->load->model('Trainer_model');
 		$role = $this->session->userdata('role');
 		if ($role == 'trainer') {
 			$this->load->view('include/header_trainer');
@@ -45,12 +45,12 @@ class Trainer extends CI_Controller {
 			$this->load->view('include/menu_admin');
 		}
 		elseif ($role == NULL) {
-			header('Location: ../login');
+			$this->load->view('admin/login');
 		}
 
-		$this->load->model('Trainer_model');
 		$data = array(
-			'trainer' => $this->Trainer_model->detail_trainer($this->session->userdata('email_sess'))
+			'trainer' => $this->Trainer_model
+                ->detail_trainer($this->session->userdata('email_sess'))
 		 );
 		 echo $this->session->userdata('email_sess');
 		 $this->load->view('trainer/data_diri', $data);
@@ -65,6 +65,7 @@ class Trainer extends CI_Controller {
 
 	public function update_trainer()
 	{
+		$this->load->model('Trainer_model');
 		$id = $this->input->post('id');
 		$nama = $this->input->post('nama');
 		$nrp = $this->input->post('NRP');
@@ -79,35 +80,35 @@ class Trainer extends CI_Controller {
 		$twitter = $this->input->post('twitter');
 		$facebook = $this->input->post('Facebook');
 
-		// echo $id;
-		// echo $nama;
-		// echo $nrp;
-		// echo $angkatan;
-		// echo $jurusan;
-		// echo $fakultas;
-		// echo $hp;
-		// echo $email;
-		// echo $asal_kota;
-		// echo $asal_provinsi;
-		// echo $line;
-		// echo $twitter;
-		// echo $facebook;
 
-		$this->load->model('Trainer_model');
-		$this->Trainer_model->update_trainer(
-      $id, $nama, $nrp, $angkatan, $jurusan, $fakultas, $hp, $email, $asal_kota, $asal_provinsi, $line, $twitter, $facebook
-    );
+		 $data = array(
+        'nama' => $nama,
+        'nrp'  => $nrp,
+        'angkatan'  => $angkatan,
+        'jurusan'  => $jurusan,
+        'fakultas'  => $nrp,
+        'hp'  => $hp,
+        'email'  => $email,
+        'asal_kota'  => $asal_kota,
+        'asal_provinsi'  => $asal_provinsi,
+        'line'  => $line,
+        'twitter'  => $twitter,
+        'facebook'  => $facebook
+      	 );
+
+		$this->Trainer_model->update_trainer($id, $data);
 
 		if ($this->session->userdata('role') == 'trainer') {
-			header('Location: ../trainer/data_diri');
+			$this->load->view('trainer/data_diri');
 		}
 		elseif ($this->session->userdata('role') == 'admin') {
-			header('Location: ../trainer');
+			redirect('trainer');
 		}
 	}
 
 	public function tambah_trainer()
 	{
+		$this->load->model('Trainer_model');
 		$role = $this->session->userdata('role');
 		if ($role == 'trainer') {
 			$this->load->view('include/header_trainer');
@@ -118,7 +119,7 @@ class Trainer extends CI_Controller {
 			$this->load->view('include/menu_admin');
 		}
 		elseif ($role == NULL) {
-			header('Location: ../login');
+			$this->load->view('admin/login');
 		}
 
 		$this->load->view('trainer/tambah_trainer');
@@ -133,7 +134,7 @@ class Trainer extends CI_Controller {
 
 	public function post_trainer()
 	{
-		$id = $this->input->post('id');
+		$this->load->model('Trainer_model');
 		$nama = $this->input->post('nama');
 		$nrp = $this->input->post('NRP');
 		$angkatan = $this->input->post('Angkatan');
@@ -148,12 +149,24 @@ class Trainer extends CI_Controller {
 		$facebook = $this->input->post('Facebook');
 		$pass = $this->input->post('pass');
 
-		$this->load->model('Trainer_model');
-		$this->Trainer_model->tambah_trainer(
-      $nama, $nrp, $angkatan, $jurusan, $fakultas, $hp, $email, $asal_kota, $asal_provinsi, $line, $twitter, $facebook
-    );
 
-		header('Location: ../trainer');
+		$data = array(
+        'nama' => $nama,
+        'nrp'  => $nrp,
+        'angkatan'  => $angkatan,
+        'jurusan'  => $jurusan,
+        'fakultas'  => $nrp,
+        'hp'  => $hp,
+        'email'  => $email,
+        'asal_kota'  => $asal_kota,
+        'asal_provinsi'  => $asal_provinsi,
+        'line'  => $line,
+        'twitter'  => $twitter,
+        'facebook'  => $facebook,
+      	 );
+		$this->Trainer_model->tambah_trainer($data, $email, $pass);
+
+		redirect('trainer');
 	}
 
 	public function hapus_trainer($id)
@@ -161,32 +174,6 @@ class Trainer extends CI_Controller {
 		$this->load->model('Trainer_model');
 		$this->Trainer_model->hapus_trainer($id);
 
-		header('Location: ../../trainer');
+		redirect('trainer');
 	}
-
-
-
-
-	/*
-	--load view
-	$this->load->view('file view');
-
-	--load model
-	$this->load->model('nama_model');
-	$this->nama_model->nama_fungsi($parameter1, $parameter2);
-
-	--get input
-	$var = $this->input->get/post('name');
-
-	--session
-	$var = $this->session->set_userdata('nama_session', nilai);			-> set nilai session
-	$this->session->unset_userdata('nama_session');						-> hapus session
-	$var = $this->session->userdata('nama_session');					-> ambil nilai session
-
-	--foreach (dapatkan nilai)
-	foreach($variabel_hasil as $variable_dioutput)
-	{
-	$variable_dioutput->kolom;
-}
-*/
 }

@@ -9,7 +9,13 @@ Class Admin_model extends CI_Model{
 
     public function login($email, $pass)
       {
-          $query = $this->db->query("select role from user where email = '$email' and pass = md5('$pass')");
+          //$query = $this->db->query("select role from user where email = '$email' and pass = md5('$pass')");
+          $this->db->select('role')
+                   ->from('user')
+                   ->where('email',$email)
+                   ->where('pass',md5($pass));
+          $query = $this->db->get();  
+
           $data = $query->result();
           if ($data == NULL) {
             return NULL;

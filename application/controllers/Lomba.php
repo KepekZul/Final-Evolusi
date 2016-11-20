@@ -3,12 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Lomba extends CI_Controller {
 
-	public function index($kategori, $start, $jumlah)
+	public function index()
 	{
-		$data['aktif'] = "lomba";
-		$this->load->view('include/header', $data);
-
 		$this->load->model('Lomba_model');
+		$kategori = $this->uri->segment(3);
+		$start = $this->uri->segment(4);
+		$jumlah = $this->uri->segment(5);
+		$data['aktif'] = "lomba";
 
 		$data = array(
 			'lomba' => $this->Lomba_model->list_lomba($kategori, $start, $jumlah),
@@ -16,25 +17,27 @@ class Lomba extends CI_Controller {
 			'awal' => $start,
 			'akhir' => $start + $jumlah - 1
 		 );
-		$this->load->view('front_end/lomba', $data);
 
+		$this->load->view('include/header', $data);
+		$this->load->view('front_end/lomba', $data);
 		$this->load->view('include/footer');
 	}
 
 	public function detail_lomba($id)
 	{
-		$data['aktif'] = "lomba";
-		$this->load->view('include/header', $data);
-
 		$this->load->model('Lomba_model');
-		$data['lomba'] = $this->Lomba_model->detail_lomba($id);
-		$this->load->view('lomba/detail', $data);
+		$data['aktif'] = "lomba";
 
+		$data['lomba'] = $this->Lomba_model->detail_lomba($id);
+
+		$this->load->view('include/header', $data);
+		$this->load->view('lomba/detail', $data);
 		$this->load->view('include/footer');
 	}
 
 	public function list_admin()
 	{
+		$this->load->model('Lomba_model');
 		$role = $this->session->userdata('role');
 		if ($role == 'trainer') {
 			$this->load->view('include/header_trainer');
@@ -45,7 +48,7 @@ class Lomba extends CI_Controller {
 			$this->load->view('include/menu_admin');
 		}
 		elseif ($role == NULL) {
-			header('Location: ../login');
+			$this->load->view('admin/login');
 		}
 
 		$this->load->model('Lomba_model');
@@ -60,11 +63,11 @@ class Lomba extends CI_Controller {
 		elseif ($role == 'admin') {
 			$this->load->view('include/footer_admin');
 		}
-
 	}
 
 	public function tambah_lomba()
 	{
+		$this->load->model('Lomba_model');
 		$role = $this->session->userdata('role');
 		if ($role == 'trainer') {
 			$this->load->view('include/header_trainer');
@@ -75,7 +78,7 @@ class Lomba extends CI_Controller {
 			$this->load->view('include/menu_admin');
 		}
 		elseif ($role == NULL) {
-			header('Location: ../login');
+			$this->load->view('admin/login');
 		}
 
 		$this->load->view('lomba/tambah_lomba');
@@ -90,6 +93,7 @@ class Lomba extends CI_Controller {
 
 	public function post_lomba()
 	{
+		$this->load->model('Lomba_model');
 		$judul = $this->input->post('judul');
 		$kategori = $this->input->post('kategori');
 		$isi = $this->input->post('isi');
@@ -118,24 +122,22 @@ class Lomba extends CI_Controller {
 			}
 			//end of upload foto
 		}
-
-		$this->load->model('Lomba_model');
 		$this->Lomba_model->tambah_lomba($judul, $kategori, $isi, $dbname);
 
-		header('Location: ../lomba/list_admin');
+		$this->load->view('berita/list_admin');
 	}
 
 	public function update_lomba()
 	{
+		$this->load->model('Lomba_model');
 		$id = $this->input->post('id');
 		$judul = $this->input->post('judul');
 		$kategori = $this->input->post('kategori');
 		$isi = $this->input->post('isi');
 
-		$this->load->model('Lomba_model');
 		$this->Lomba_model->update_lomba($id, $judul, $kategori, $isi);
 
-		header('Location: ../lomba/list_admin');
+		$this->load->view('berita/list_admin');
 	}
 
 	public function hapus_lomba($id)
@@ -143,29 +145,6 @@ class Lomba extends CI_Controller {
 		$this->load->model('Lomba_model');
 		$this->Lomba_model->hapus_lomba($id);
 
-		header('Location: ../../lomba/list_admin');
+		$this->load->view('berita/list_admin');;
 	}
-
-	/*
-	--load view
-	$this->load->view('file view');
-
-	--load model
-	$this->load->model('nama_model');
-	$this->nama_model->nama_fungsi($parameter1, $parameter2);
-
-	--get input
-	$var = $this->input->get/post('name');
-
-	--session
-	$var = $this->session->set_userdata('nama_session', nilai);			-> set nilai session
-	$this->session->unset_userdata('nama_session');						-> hapus session
-	$var = $this->session->userdata('nama_session');					-> ambil nilai session
-
-	--foreach (dapatkan nilai)
-	foreach($variabel_hasil as $variable_dioutput)
-	{
-		$variable_dioutput->kolom;
-	}
-	*/
 }
