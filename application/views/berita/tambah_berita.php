@@ -3,14 +3,14 @@
 
   <!-- Page heading -->
   <div class="page-head">
-    <h2 class="pull-left"><i class="fa fa-home"></i> Post Berita</h2>
+    <h2 class="pull-left"><i class="fa fa-home"></i> Tambah Berita</h2>
 
     <!-- Breadcrumb -->
     <div class="bread-crumb pull-right">
-      <a href="index.html"><i class="fa fa-home"></i> Home</a>
+      <a href="<?php echo site_url("berita/list"); ?>"><i class="fa fa-home"></i>Berita</a>
       <!-- Divider -->
       <span class="divider">/</span>
-      <a href="#" class="bread-current">Dashboard</a>
+      <a href="#" class="bread-current">Tambah Berita</a>
     </div>
 
     <div class="clearfix"></div>
@@ -28,7 +28,7 @@
 
           <div class="widget">
             <div class="widget-head">
-              <div class="pull-left">Post Berita</div>
+              <div class="pull-left">Tambah Berita</div>
               <div class="widget-icons pull-right">
               </div>
               <div class="clearfix"></div>
@@ -36,7 +36,7 @@
             <div class="widget-content">
               <div class="padd">
 
-                <form action="<?php echo base_url(); ?>berita/post_berita" method="post" role="form" enctype="multipart/form-data">
+                <form action="<?php echo site_url("berita/post"); ?>" method="post" role="form" enctype="multipart/form-data">
                   <div class="row">
                     <div class="col-md-1">
                         <label>Judul</label>

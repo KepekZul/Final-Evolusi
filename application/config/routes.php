@@ -52,13 +52,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['login'] = 'Login/login_post';
+$route['logout'] = 'Login/logout';
+
+//-------Route Artikel--------------------------
+$route['artikel/list'] = 'Artikel/list_artikel/$1';
 $route['artikel/detail/(:any)'] = 'Artikel/detail_artikel/$1';
+$route['artikel/tambah'] = 'Artikel/tambah_artikel';
+$route['artikel/post'] = 'Artikel/post_artikel';
+$route['artikel/update'] = 'Artikel/update_artikel';
+$route['artikel/hapus/(:any)'] = 'Artikel/hapus_artikel/$1';
 $route['artikel/index/(:any)/(:any)/(:any)'] = 'Artikel/detail_artikel/$1/$2/$3';
 
+//-------Route Berita--------------------------
+$route['berita/list'] = 'Berita/list_berita/$1';
 $route['berita/detail/(:any)'] = 'Berita/detail_berita/$1';
+$route['berita/tambah'] = 'Berita/tambah_berita';
+$route['berita/post'] = 'Berita/post_berita';
+$route['berita/update'] = 'Berita/update_berita';
+$route['berita/hapus/(:any)'] = 'Berita/hapus_berita/$1';
 $route['berita/index/(:any)/(:any)/(:any)'] = 'Berita/detail_berita/$1/$2/$3';
 
+//-------Route Lomba--------------------------
+$route['lomba/list'] = 'Lomba/list_lomba/$1';
 $route['lomba/detail/(:any)'] = 'Lomba/detail_lomba/$1';
+$route['lomba/tambah'] = 'Lomba/tambah_lomba';
+$route['lomba/post'] = 'Lomba/post_lomba';
+$route['lomba/update'] = 'Lomba/update_lomba';
+$route['lomba/hapus/(:any)'] = 'Lomba/hapus_lomba/$1';
 $route['lomba/index/(:any)/(:any)/(:any)'] = 'Lomba/detail_lomba/$1/$2/$3';
 
-$route['trainer'] = 'Trainer/index';
+//-------Route Trainer--------------------------
+$route['trainer/list'] = 'Trainer/list_trainer';
+$route['trainer/tambah'] = 'Trainer/tambah_trainer';
+$route['trainer/post'] = 'Trainer/post_trainer';
+$route['trainer/update'] = 'Trainer/update_trainer';
+$route['trainer/hapus/(:any)'] = 'Trainer/hapus_trainer/$1';
+$route['trainer/data'] = 'Trainer/data_diri';

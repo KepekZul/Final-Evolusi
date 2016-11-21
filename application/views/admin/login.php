@@ -42,7 +42,7 @@
             <div class="widget-content">
               <div class="padd">
                 <!-- Login form -->
-                <form class="form-horizontal" method="post" action="<?php echo base_url() ?>Login/login_post">
+                <form class="form-horizontal" method="post" action="<?php echo site_url("login") ?>">
                   <!-- Email -->
                   <div class="form-group">
                     <label class="control-label col-lg-3" for="inputEmail">Email</label>

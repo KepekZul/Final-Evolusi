@@ -7,10 +7,10 @@
 
     <!-- Breadcrumb -->
     <div class="bread-crumb pull-right">
-      <a href="index.html"><i class="fa fa-home"></i> Home</a>
+      <a href="<?php echo site_url("trainer/list"); ?>"><i class="fa fa-home"></i>Trainer</a>
       <!-- Divider -->
       <span class="divider">/</span>
-      <a href="#" class="bread-current">Dashboard</a>
+      <a href="#" class="bread-current">Data Trainer</a>
     </div>
 
     <div class="clearfix"></div>
@@ -36,7 +36,7 @@
               <div class="widget-content">
                 <div class="padd">
                   <?php foreach($trainer as $ar){ ?>
-                    <form class="form-horizontal" role="form" action="<?php echo base_url(); ?>trainer/update_trainer" method="post">
+                    <form class="form-horizontal" role="form" action="<?php echo site_url("trainer/update"); ?>" method="post">
 
                       <input type="hidden" name="id" id="id" class="form-control" placeholder="<?php echo $ar->id; ?>" value="<?php echo $ar->id; ?>" readonly="readonly">
 

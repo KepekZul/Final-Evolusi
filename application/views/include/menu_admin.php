@@ -46,15 +46,15 @@
     <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
     <ul id="nav">
       <!-- Main menu with font awesome icon -->
-      <li><a href="<?php echo base_url(); ?>trainer"><i class="fa fa-home"></i>Daftar Trainer</a></li>
+      <li><a href="<?php echo site_url("trainer/list"); ?>"><i class="fa fa-home"></i>Daftar Trainer</a></li>
       <li class="has_sub"><a href="#"><i class="fa fa-list-alt"></i> Informasi  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
         <ul>
-          <li><a href="<?php echo base_url(); ?>artikel/list_admin">Artikel</a></li>
-          <li><a href="<?php echo base_url(); ?>berita/list_admin">Berita</a></li>
-          <li><a href="<?php echo base_url(); ?>lomba/list_admin">Info Lomba</a></li>
+          <li><a href="<?php echo site_url('artikel/list_artikel'); ?>">Artikel</a></li>
+          <li><a href="<?php echo site_url('berita/list_berita'); ?>">Berita</a></li>
+          <li><a href="<?php echo site_url('lomba/list_lomba'); ?>">Lomba</a></li>
         </ul>
       </li>
-      <li><a href="<?php echo base_url(); ?>login/logout"><i class="fa fa-home"></i> Log Out</a></li>
+      <li><a href="<?php echo site_url("logout"); ?>"><i class="fa fa-home"></i> Log Out</a></li>
     </ul>
   </div>
 

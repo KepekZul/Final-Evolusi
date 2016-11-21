@@ -7,10 +7,10 @@
 
     <!-- Breadcrumb -->
     <div class="bread-crumb pull-right">
-      <a href="index.html"><i class="fa fa-home"></i> Home</a>
+      <a href="<?php echo site_url("trainer/list"); ?>"><i class="fa fa-home"></i>Trainer</a>
       <!-- Divider -->
       <span class="divider">/</span>
-      <a href="#" class="bread-current">Dashboard</a>
+      <a href="#" class="bread-current">Tambah Trainer</a>
     </div>
 
     <div class="clearfix"></div>
@@ -35,7 +35,7 @@
               </div>
               <div class="widget-content">
                 <div class="padd">
-                    <form class="form-horizontal" role="form" action="<?php echo base_url(); ?>trainer/post_trainer" method="post">
+                    <form class="form-horizontal" role="form" action="<?php echo site_url("trainer/post"); ?>" method="post">
                       <div class="form-group">
                         <label class="col-lg-2 control-label">Nama</label>
                         <div class="col-lg-5">

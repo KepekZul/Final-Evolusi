@@ -35,7 +35,7 @@ class Lomba extends CI_Controller {
 		$this->load->view('include/footer');
 	}
 
-	public function list_admin()
+	public function list_lomba()
 	{
 		$this->load->model('Lomba_model');
 		$role = $this->session->userdata('role');
@@ -55,7 +55,7 @@ class Lomba extends CI_Controller {
 		$data = array(
 			'lomba' => $this->Lomba_model->list_all_lomba()
 		 );
-		 $this->load->view('lomba/list_admin', $data);
+		 $this->load->view('lomba/list_lomba', $data);
 
 		if ($role == 'trainer') {
 			$this->load->view('include/footer_trainer');
@@ -124,7 +124,7 @@ class Lomba extends CI_Controller {
 		}
 		$this->Lomba_model->tambah_lomba($judul, $kategori, $isi, $dbname);
 
-		$this->load->view('berita/list_admin');
+		redirect('lomba/list');
 	}
 
 	public function update_lomba()
@@ -137,7 +137,7 @@ class Lomba extends CI_Controller {
 
 		$this->Lomba_model->update_lomba($id, $judul, $kategori, $isi);
 
-		$this->load->view('berita/list_admin');
+		redirect('lomba/list');
 	}
 
 	public function hapus_lomba($id)
@@ -145,6 +145,6 @@ class Lomba extends CI_Controller {
 		$this->load->model('Lomba_model');
 		$this->Lomba_model->hapus_lomba($id);
 
-		$this->load->view('berita/list_admin');;
+		redirect('lomba/list');;
 	}
 }

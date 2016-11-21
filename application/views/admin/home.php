@@ -37,7 +37,6 @@
               <div class="padd">
 
                 <form class="form">
-                  <!-- <form action="<?php echo base_url(); ?>WelcomeController/daftarDriver/2" method="post" role="form" enctype="multipart/form-data"> -->
                   <input type="text" class="form-control col-lg-8" placeholder="Masukan Judul artikel">
                   <br /><br />
 

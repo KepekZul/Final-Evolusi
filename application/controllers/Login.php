@@ -23,12 +23,12 @@ class Login extends CI_Controller {
 		elseif ($login_stat == 'trainer') {
 			$this->session->set_userdata('role', $login_stat);
 			$this->session->set_userdata('email_sess', $email);
-			redirect('trainer');
+			redirect('trainer/list');
 		}
 		elseif ($login_stat == 'admin') {
 			$this->session->set_userdata('role', $login_stat);
 			$this->session->set_userdata('email_sess', $email);
-			redirect('trainer');
+			redirect('trainer/list');
 		}
 		else {
 			$this->load->view('admin/login');

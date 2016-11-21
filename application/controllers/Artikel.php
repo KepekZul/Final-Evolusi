@@ -36,7 +36,7 @@ class Artikel extends CI_Controller {
 		$this->load->view('include/footer');
 	}
 
-	public function list_admin()
+	public function list_artikel()
 	{
 		$this->load->model('Artikel_model');
 		$role = $this->session->userdata('role');
@@ -54,7 +54,7 @@ class Artikel extends CI_Controller {
 		$data = array(
 			'artikel' => $this->Artikel_model->list_all_artikel()
 		 );
-		 $this->load->view('artikel/list_admin', $data);
+		 $this->load->view('artikel/list_artikel', $data);
 
 		if ($role == 'trainer') {
 			$this->load->view('include/footer_trainer');
@@ -125,7 +125,7 @@ class Artikel extends CI_Controller {
 
 		$this->Artikel_model->tambah_artikel($judul, $kategori, $isi, $dbname);
 
-		$this->load->view('artikel/list_admin');
+		redirect('artikel/list');
 	}
 
 	public function update_artikel()
@@ -138,7 +138,7 @@ class Artikel extends CI_Controller {
 
 		$this->Artikel_model->update_artikel($id, $judul, $kategori, $isi);
 
-		$this->load->view('artikel/list_admin');
+		redirect('artikel/list');
 	}
 
 	public function hapus_artikel($id)
@@ -146,6 +146,6 @@ class Artikel extends CI_Controller {
 		$this->load->model('Artikel_model');
 		$this->Artikel_model->hapus_artikel($id);
 
-		$this->load->view('artikel/list_admin');
+		redirect('artikel/list');
 	}
 }

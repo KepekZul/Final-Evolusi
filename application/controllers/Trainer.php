@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Trainer extends CI_Controller {
 
-	public function index()
+	public function list_trainer()
 	{
 		$this->load->model('Trainer_model');
 		$role = $this->session->userdata('role');
@@ -22,7 +22,7 @@ class Trainer extends CI_Controller {
 		$data = array(
 			'trainer' => $this->Trainer_model->list_all_trainer()
 		 );
-		 $this->load->view('trainer/list_admin', $data);
+		 $this->load->view('trainer/list_trainer', $data);
 
 		if ($role == 'trainer') {
 			$this->load->view('include/footer_trainer');
@@ -52,7 +52,6 @@ class Trainer extends CI_Controller {
 			'trainer' => $this->Trainer_model
                 ->detail_trainer($this->session->userdata('email_sess'))
 		 );
-		 echo $this->session->userdata('email_sess');
 		 $this->load->view('trainer/data_diri', $data);
 
 		if ($role == 'trainer') {
@@ -99,10 +98,10 @@ class Trainer extends CI_Controller {
 		$this->Trainer_model->update_trainer($id, $data);
 
 		if ($this->session->userdata('role') == 'trainer') {
-			$this->load->view('trainer/data_diri');
+			redirect('trainer/data');
 		}
 		elseif ($this->session->userdata('role') == 'admin') {
-			redirect('trainer');
+			redirect('trainer/list');
 		}
 	}
 
@@ -166,7 +165,7 @@ class Trainer extends CI_Controller {
       	 );
 		$this->Trainer_model->tambah_trainer($data, $email, $pass);
 
-		redirect('trainer');
+		redirect('trainer/list');
 	}
 
 	public function hapus_trainer($id)
@@ -174,6 +173,6 @@ class Trainer extends CI_Controller {
 		$this->load->model('Trainer_model');
 		$this->Trainer_model->hapus_trainer($id);
 
-		redirect('trainer');
+		redirect('trainer/list');
 	}
 }

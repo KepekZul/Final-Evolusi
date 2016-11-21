@@ -36,7 +36,7 @@ class Berita extends CI_Controller {
 		$this->load->view('include/footer');
 	}
 
-	public function list_admin()
+	public function list_berita()
 	{
 		$this->load->model('Berita_model');
 		$role = $this->session->userdata('role');
@@ -54,7 +54,7 @@ class Berita extends CI_Controller {
 		$data = array(
 			'berita' => $this->Berita_model->list_all_berita()
 		 );
-		 $this->load->view('berita/list_admin', $data);
+		 $this->load->view('berita/list_berita', $data);
 
 		if ($role == 'trainer') {
 			$this->load->view('include/footer_trainer');
@@ -122,7 +122,8 @@ class Berita extends CI_Controller {
 			//end of upload foto
 		}
 		$this->Berita_model->tambah_berita($judul, $kategori, $isi, $dbname);
-		$this->load->view('berita/list_admin');
+
+		redirect('berita/list');
 	}
 
 	public function update_berita()
@@ -135,7 +136,7 @@ class Berita extends CI_Controller {
 
 		$this->Berita_model->update_berita($id, $judul, $kategori, $isi);
 
-		$this->load->view('berita/list_admin');
+		redirect('berita/list');
 	}
 
 	public function hapus_berita($id)
@@ -143,6 +144,6 @@ class Berita extends CI_Controller {
 		$this->load->model('Berita_model');
 		$this->Berita_model->hapus_berita($id);
 
-		$this->load->view('berita/list_admin');
+		redirect('berita/list');
 	}
 }

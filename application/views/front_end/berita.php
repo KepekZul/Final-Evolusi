@@ -19,10 +19,10 @@
                     </div>
 
                     <div class="col-xs-12 col-sm-10 blog-content">
-                      <h2><a href="<?php echo site_url("berita/detail_berita/$ar->id"); ?>"><?php echo $ar->judul; ?></a></h2>
+                      <h2><a href="<?php echo site_url("berita/detail/$ar->id"); ?>"><?php echo $ar->judul; ?></a></h2>
                       <a href="#"><img class="img-responsive img-blog" src="<?php echo base_url(); ?>assets/images/<?php echo $ar->foto; ?>" width="100%" alt="" /></a>
                       <h3><?php $isi = $ar->isi; echo substr($isi, 0, 275); echo '...'; ?></h3>
-                      <a class="btn btn-primary readmore" href="<?php echo site_url("berita/detail_berita/$ar->id"); ?>">Read More <i class="fa fa-angle-right"></i></a>
+                      <a class="btn btn-primary readmore" href="<?php echo site_url("berita/detail/$ar->id"); ?>">Read More <i class="fa fa-angle-right"></i></a>
                     </div>
                   </div>
                 </div><!--/.blog-item-->
