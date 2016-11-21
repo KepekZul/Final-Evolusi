@@ -40,14 +40,14 @@
 
       <div class="collapse navbar-collapse navbar-right">
         <ul class="nav navbar-nav">
-          <li <?php if($aktif == 'index') echo "class='active'>" ?> ><a href="<?php echo base_url(); ?>home">Home</a></li>
-          <li <?php if($aktif == 'about') echo "class='active'>" ?> ><a href="<?php echo base_url(); ?>home/about">About Us</a></li>
-          <li <?php if($aktif == 'anggota') echo "class='active'>" ?> ><a href="<?php echo base_url(); ?>home/anggota">Anggota</a></li>
-          <li <?php if($aktif == 'sop') echo "class='active'>" ?> ><a href="<?php echo base_url(); ?>home/sop">SOP</a></li>
-          <li <?php if($aktif == 'berita') echo "class='active'>" ?> ><a href="<?php echo base_url(); ?>berita/index/all/1/3">Berita</a></li>
-          <li <?php if($aktif == 'artikel') echo "class='active'>" ?> ><a href="<?php echo base_url(); ?>artikel/index/all/1/3">Artikel</a></li>
-          <li <?php if($aktif == 'lomba') echo "class='active'>" ?> ><a href="<?php echo base_url(); ?>lomba/index/all/1/3">Info Lomba</a></li>
-          <li><a href="<?php echo base_url(); ?>login">Login</a></li>
+          <li <?php if($aktif == 'index') echo "class='active'>" ?> ><a href="<?php echo site_url("home"); ?>">Home</a></li>
+          <li <?php if($aktif == 'about') echo "class='active'>" ?> ><a href="<?php echo site_url("about"); ?>">About Us</a></li>
+          <li <?php if($aktif == 'anggota') echo "class='active'>" ?> ><a href="<?php echo site_url("anggota"); ?>">Anggota</a></li>
+          <li <?php if($aktif == 'sop') echo "class='active'>" ?> ><a href="<?php echo site_url("sop"); ?>">SOP</a></li>
+          <li <?php if($aktif == 'berita') echo "class='active'>" ?> ><a href="<?php echo site_url("berita/index/all/1/3"); ?>">Berita</a></li>
+          <li <?php if($aktif == 'artikel') echo "class='active'>" ?> ><a href="<?php echo site_url("artikel/index/all/1/3"); ?>">Artikel</a></li>
+          <li <?php if($aktif == 'lomba') echo "class='active'>" ?> ><a href="<?php echo site_url("lomba/index/all/1/3"); ?>">Info Lomba</a></li>
+          <li><a href="<?php echo site_url("login"); ?>">Login</a></li>
 
         </ul>
       </div>

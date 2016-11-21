@@ -56,6 +56,13 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'Login/login_post';
 $route['logout'] = 'Login/logout';
 
+//-------Route Home------------------------
+
+$route['home'] = 'Home/index';
+$route['about'] = 'Home/about';
+$route['anggota'] = 'Home/anggota';
+$route['sop'] = 'Home/sop';
+
 //-------Route Artikel--------------------------
 $route['artikel/list'] = 'Artikel/list_artikel/$1';
 $route['artikel/detail/(:any)'] = 'Artikel/detail_artikel/$1';
@@ -63,7 +70,7 @@ $route['artikel/tambah'] = 'Artikel/tambah_artikel';
 $route['artikel/post'] = 'Artikel/post_artikel';
 $route['artikel/update'] = 'Artikel/update_artikel';
 $route['artikel/hapus/(:any)'] = 'Artikel/hapus_artikel/$1';
-$route['artikel/index/(:any)/(:any)/(:any)'] = 'Artikel/detail_artikel/$1/$2/$3';
+$route['artikel/index/(:any)/(:any)/(:any)'] = 'Artikel/index/$1/$2/$3';
 
 //-------Route Berita--------------------------
 $route['berita/list'] = 'Berita/list_berita/$1';
@@ -72,7 +79,7 @@ $route['berita/tambah'] = 'Berita/tambah_berita';
 $route['berita/post'] = 'Berita/post_berita';
 $route['berita/update'] = 'Berita/update_berita';
 $route['berita/hapus/(:any)'] = 'Berita/hapus_berita/$1';
-$route['berita/index/(:any)/(:any)/(:any)'] = 'Berita/detail_berita/$1/$2/$3';
+$route['berita/index/(:any)/(:any)/(:any)'] = 'Berita/index/$1/$2/$3';
 
 //-------Route Lomba--------------------------
 $route['lomba/list'] = 'Lomba/list_lomba/$1';
@@ -81,7 +88,7 @@ $route['lomba/tambah'] = 'Lomba/tambah_lomba';
 $route['lomba/post'] = 'Lomba/post_lomba';
 $route['lomba/update'] = 'Lomba/update_lomba';
 $route['lomba/hapus/(:any)'] = 'Lomba/hapus_lomba/$1';
-$route['lomba/index/(:any)/(:any)/(:any)'] = 'Lomba/detail_lomba/$1/$2/$3';
+$route['lomba/index/(:any)/(:any)/(:any)'] = 'Lomba/index/$1/$2/$3';
 
 //-------Route Trainer--------------------------
 $route['trainer/list'] = 'Trainer/list_trainer';

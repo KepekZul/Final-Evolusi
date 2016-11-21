@@ -11,6 +11,7 @@ class Berita extends CI_Controller {
 		$jumlah = $this->uri->segment(5);
 
 		$data['aktif'] = "berita";
+		$this->load->view('include/header', $data);
 		
 		$data = array(
 			'berita' => $this->Berita_model->list_berita($kategori, $start, $jumlah),
@@ -18,8 +19,7 @@ class Berita extends CI_Controller {
 			'awal' => $start,
 			'akhir' => $start + $jumlah - 1
 		 );
-
-		$this->load->view('include/header', $data);
+		
 		$this->load->view('front_end/berita', $data);
 		$this->load->view('include/footer');
 	}

@@ -9,8 +9,6 @@ Class Lomba_model extends CI_Model{
 
     public function list_all_lomba()
     {
-      // $query = $this->db->query("set @no = 0;");
-      // $query = $this->db->query("select *, @no:=@no+1 as nomor from lomba where hapus = 0 order by tanggal desc");
       $query = $this->db->order_by('tanggal', 'DESC')
                         ->get_where('artikel', array('hapus' => 0, 'jenis' => 3));
 
@@ -22,12 +20,15 @@ Class Lomba_model extends CI_Model{
     {
       $s = $start - 1;
       if($kategori == 'all')
+      {
         $query = $this->db->order_by('tanggal', 'DESC')
                           ->get_where('artikel', array('hapus' => 0, 'jenis' => 3), $s, $jumlah);                  
+      }
       else
+      {
         $query = $this->db->order_by('tanggal', 'DESC')
                           ->get_where('artikel', array('kategori'=>$kategori,'hapus' => 0, 'jenis' => 3), $s, $jumlah); 
-
+      }
 
       $data = $query->result();
       return $data;
@@ -35,23 +36,22 @@ Class Lomba_model extends CI_Model{
 
     public function detail_lomba($id)
     {
-      //$id = $this->input->post('id');
       $query = $this->db->get_where('artikel', array('id' => $id, 'jenis' => 3));
       $data = $query->result();
       return $data;
     }
     public function jumlah_lomba($kategori)
     {
-      if ($kategori == 'all') {
-        // $query = $this->db->query("select count(1) as jumlah from lomba where hapus = 0");
+      if ($kategori == 'all') 
+      {
          $query = $this->db->where('hapus', 0)
                            ->where('jenis', 3)
                            ->from('artikel')
                            ->count_all_results(); 
         return $query;
       }
-      else {
-        // $query = $this->db->query("select count(1) as jumlah from lomba where hapus = 0 and kategori = '$kategori' ");
+      else 
+      {
          $query = $this->db->where('hapus', 0)
                            ->where('jenis', 3)
                            ->where('kategori', $kategori)
@@ -63,7 +63,6 @@ Class Lomba_model extends CI_Model{
 
     public function tambah_lomba($judul, $kategori, $isi, $nmfile)
     {
-      // $query = $this->db->query("insert into lomba(judul, kategori, isi, foto, tanggal) value('$judul', '$kategori', '$isi', '$nmfile', NOW());");
        $data = array(
         'judul' => $judul,
         'kategori' => $kategori,
@@ -78,7 +77,6 @@ Class Lomba_model extends CI_Model{
 
     public function update_lomba($id, $judul, $kategori, $isi)
     {
-      //$query = $this->db->query("update lomba set judul = '$judul', kategori = '$kategori', isi = '$isi' where id = '$id'");
       $data = array(
         'judul' => $judul,
         'kategori' => $kategori,
@@ -92,7 +90,6 @@ Class Lomba_model extends CI_Model{
 
     public function hapus_lomba($id)
     {
-      // $query = $this->db->query("update lomba set hapus = 1 where id = '$id'");
       $this->db->set('hapus', 1);
       $this->db->where('id', $id);
       $this->db->where('jenis', 3);

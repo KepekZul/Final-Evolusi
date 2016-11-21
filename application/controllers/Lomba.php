@@ -10,6 +10,7 @@ class Lomba extends CI_Controller {
 		$start = $this->uri->segment(4);
 		$jumlah = $this->uri->segment(5);
 		$data['aktif'] = "lomba";
+		$this->load->view('include/header', $data);
 
 		$data = array(
 			'lomba' => $this->Lomba_model->list_lomba($kategori, $start, $jumlah),
@@ -18,7 +19,6 @@ class Lomba extends CI_Controller {
 			'akhir' => $start + $jumlah - 1
 		 );
 
-		$this->load->view('include/header', $data);
 		$this->load->view('front_end/lomba', $data);
 		$this->load->view('include/footer');
 	}

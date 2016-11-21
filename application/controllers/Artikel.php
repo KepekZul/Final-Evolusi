@@ -10,6 +10,7 @@ class Artikel extends CI_Controller {
 		$start = $this->uri->segment(4);
 		$jumlah = $this->uri->segment(5);
 		$data['aktif'] = "artikel";
+		$this->load->view('include/header', $data);
 
 		$data = array(
 			'artikel' => $this->Artikel_model->list_artikel($kategori, $start, $jumlah),
@@ -17,8 +18,6 @@ class Artikel extends CI_Controller {
 			'awal' => $start,
 			'akhir' => $start + $jumlah - 1
 		 );
-
-		$this->load->view('include/header', $data);
 		$this->load->view('front_end/artikel', $data);
 		$this->load->view('include/footer');
 	}
