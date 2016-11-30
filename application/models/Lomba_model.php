@@ -16,6 +16,17 @@ Class Lomba_model extends CI_Model{
       return $data;
     }
 
+    public function get_id($id)
+    {
+      $query = $this->db->select('id')
+                        ->from('artikel')
+                        ->where('id', $id)
+                        ->where('jenis', 3)
+                        ->get();
+      $data = $query->row()->id;
+      return $data;
+    }
+
     public function list_lomba($kategori, $start, $jumlah)
     {
       $s = $start - 1;

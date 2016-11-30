@@ -18,27 +18,34 @@ class Login extends CI_Controller {
 
 	public function login_post()
 	{
-		$email = $this->input->post('email');
-		$pass = $this->input->post('pass');
+		if ($_SERVER['REQUEST_METHOD'] === 'POST')
+		{
+			$email = $this->input->post('email');
+			$pass = $this->input->post('pass');
 
-		$this->load->model('admin_model');
-		$login_stat = $this->admin_model->login($email, $pass);
+			$this->load->model('admin_model');
+			$login_stat = $this->admin_model->login($email, $pass);
 
-		if ($login_stat == NULL) {
+			if ($login_stat == NULL) {
+				redirect('loginform');
+			}
+			elseif ($login_stat == 'trainer') {
+				$this->session->set_userdata('role', $login_stat);
+				$this->session->set_userdata('email_sess', $email);
+				redirect('trainer/list');
+			}
+			elseif ($login_stat == 'admin') {
+				$this->session->set_userdata('role', $login_stat);
+				$this->session->set_userdata('email_sess', $email);
+				redirect('trainer/list');
+			}
+			else {
+				$this->load->view('admin/login');
+			}
+		}
+		elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
+		{
 			redirect('loginform');
-		}
-		elseif ($login_stat == 'trainer') {
-			$this->session->set_userdata('role', $login_stat);
-			$this->session->set_userdata('email_sess', $email);
-			redirect('trainer/list');
-		}
-		elseif ($login_stat == 'admin') {
-			$this->session->set_userdata('role', $login_stat);
-			$this->session->set_userdata('email_sess', $email);
-			redirect('trainer/list');
-		}
-		else {
-			$this->load->view('admin/login');
 		}
 	}
 

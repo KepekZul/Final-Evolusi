@@ -74,44 +74,51 @@ class Trainer extends CI_Controller {
 
 	public function update_trainer()
 	{
-		$this->load->model('Trainer_model');
-		$id = $this->input->post('id');
-		$nama = $this->input->post('nama');
-		$nrp = $this->input->post('NRP');
-		$angkatan = $this->input->post('Angkatan');
-		$jurusan = $this->input->post('jurusan');
-		$fakultas = $this->input->post('Fakultas');
-		$hp = $this->input->post('HP');
-		$email = $this->input->post('Email');
-		$asal_kota = $this->input->post('asal_kota');
-		$asal_provinsi = $this->input->post('asal_provinsi');
-		$line = $this->input->post('Line');
-		$twitter = $this->input->post('twitter');
-		$facebook = $this->input->post('Facebook');
-
-
-		 $data = array(
-        'nama' => $nama,
-        'nrp'  => $nrp,
-        'angkatan'  => $angkatan,
-        'jurusan'  => $jurusan,
-        'fakultas'  => $nrp,
-        'hp'  => $hp,
-        'email'  => $email,
-        'asal_kota'  => $asal_kota,
-        'asal_provinsi'  => $asal_provinsi,
-        'line'  => $line,
-        'twitter'  => $twitter,
-        'facebook'  => $facebook
-      	 );
-
-		$this->Trainer_model->update_trainer($id, $data);
-
-		if ($this->session->userdata('role') == 'trainer') 
+		if ($_SERVER['REQUEST_METHOD'] === 'POST')
 		{
-			redirect('trainer/data');
+			$this->load->model('Trainer_model');
+			$id = $this->input->post('id');
+			$nama = $this->input->post('nama');
+			$nrp = $this->input->post('NRP');
+			$angkatan = $this->input->post('Angkatan');
+			$jurusan = $this->input->post('jurusan');
+			$fakultas = $this->input->post('Fakultas');
+			$hp = $this->input->post('HP');
+			$email = $this->input->post('Email');
+			$asal_kota = $this->input->post('asal_kota');
+			$asal_provinsi = $this->input->post('asal_provinsi');
+			$line = $this->input->post('Line');
+			$twitter = $this->input->post('twitter');
+			$facebook = $this->input->post('Facebook');
+
+
+			$data = array(
+			'nama' => $nama,
+			'nrp'  => $nrp,
+			'angkatan'  => $angkatan,
+			'jurusan'  => $jurusan,
+			'fakultas'  => $nrp,
+			'hp'  => $hp,
+			'email'  => $email,
+			'asal_kota'  => $asal_kota,
+			'asal_provinsi'  => $asal_provinsi,
+			'line'  => $line,
+			'twitter'  => $twitter,
+			'facebook'  => $facebook
+			);
+
+			$this->Trainer_model->update_trainer($id, $data);
+
+			if ($this->session->userdata('role') == 'trainer') 
+			{
+				redirect('trainer/data');
+			}
+			elseif ($this->session->userdata('role') == 'admin') 
+			{
+				redirect('trainer/list');
+			}
 		}
-		elseif ($this->session->userdata('role') == 'admin') 
+		elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 		{
 			redirect('trainer/list');
 		}
@@ -145,39 +152,46 @@ class Trainer extends CI_Controller {
 
 	public function post_trainer()
 	{
-		$this->load->model('Trainer_model');
-		$nama = $this->input->post('nama');
-		$nrp = $this->input->post('NRP');
-		$angkatan = $this->input->post('Angkatan');
-		$jurusan = $this->input->post('jurusan');
-		$fakultas = $this->input->post('Fakultas');
-		$hp = $this->input->post('HP');
-		$email = $this->input->post('Email');
-		$asal_kota = $this->input->post('asal_kota');
-		$asal_provinsi = $this->input->post('asal_provinsi');
-		$line = $this->input->post('Line');
-		$twitter = $this->input->post('twitter');
-		$facebook = $this->input->post('Facebook');
-		$pass = $this->input->post('pass');
+		if ($_SERVER['REQUEST_METHOD'] === 'POST')
+		{
+			$this->load->model('Trainer_model');
+			$nama = $this->input->post('nama');
+			$nrp = $this->input->post('NRP');
+			$angkatan = $this->input->post('Angkatan');
+			$jurusan = $this->input->post('jurusan');
+			$fakultas = $this->input->post('Fakultas');
+			$hp = $this->input->post('HP');
+			$email = $this->input->post('Email');
+			$asal_kota = $this->input->post('asal_kota');
+			$asal_provinsi = $this->input->post('asal_provinsi');
+			$line = $this->input->post('Line');
+			$twitter = $this->input->post('twitter');
+			$facebook = $this->input->post('Facebook');
+			$pass = $this->input->post('pass');
 
 
-		$data = array(
-        'nama' => $nama,
-        'nrp'  => $nrp,
-        'angkatan'  => $angkatan,
-        'jurusan'  => $jurusan,
-        'fakultas'  => $nrp,
-        'hp'  => $hp,
-        'email'  => $email,
-        'asal_kota'  => $asal_kota,
-        'asal_provinsi'  => $asal_provinsi,
-        'line'  => $line,
-        'twitter'  => $twitter,
-        'facebook'  => $facebook,
-      	 );
-		$this->Trainer_model->tambah_trainer($data, $email, $pass);
+			$data = array(
+			'nama' => $nama,
+			'nrp'  => $nrp,
+			'angkatan'  => $angkatan,
+			'jurusan'  => $jurusan,
+			'fakultas'  => $nrp,
+			'hp'  => $hp,
+			'email'  => $email,
+			'asal_kota'  => $asal_kota,
+			'asal_provinsi'  => $asal_provinsi,
+			'line'  => $line,
+			'twitter'  => $twitter,
+			'facebook'  => $facebook,
+			);
+			$this->Trainer_model->tambah_trainer($data, $email, $pass);
 
-		redirect('trainer/list');
+			redirect('trainer/list');
+		}
+		elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
+		{
+			redirect('trainer/list');
+		}
 	}
 
 	public function hapus_trainer($id)

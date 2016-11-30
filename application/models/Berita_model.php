@@ -16,6 +16,17 @@ Class Berita_model extends CI_Model{
       return $data;
     }
 
+    public function get_id($id)
+    {
+      $query = $this->db->select('id')
+                        ->from('artikel')
+                        ->where('id', $id)
+                        ->where('jenis', 2)
+                        ->get();
+      $data = $query->row()->id;
+      return $data;
+    }
+
     public function list_berita($kategori, $start, $jumlah)
     {
       $s = $start - 1;
