@@ -3,9 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
-	public function index()
+	public function form()
 	{
-		$this->load->view('admin/login');
+		$session_data = $this->session->userdata('role');
+		if($session_data == NULL)
+		{
+			$this->load->view('admin/login');
+		}
+		else
+		{
+			redirect('trainer/list');
+		}
 	}
 
 	public function login_post()
@@ -16,9 +24,8 @@ class Login extends CI_Controller {
 		$this->load->model('admin_model');
 		$login_stat = $this->admin_model->login($email, $pass);
 
-		echo "$email $pass -$login_stat-";
 		if ($login_stat == NULL) {
-			$this->load->view('admin/login');
+			redirect('loginform');
 		}
 		elseif ($login_stat == 'trainer') {
 			$this->session->set_userdata('role', $login_stat);
@@ -39,6 +46,6 @@ class Login extends CI_Controller {
 	{
 		$this->session->unset_userdata('role');
 		$this->session->unset_userdata('email_sess');
-		$this->load->view('admin/login');
+		redirect('home');
 	}
 }

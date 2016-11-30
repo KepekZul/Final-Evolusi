@@ -6,6 +6,14 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$data['aktif'] = "index";
+		if($this->session->userdata('role') != NULL)
+		{
+			$data['authenticated'] = 1;
+		}
+		else
+		{
+			$data['authenticated'] = 0;
+		}
 		$this->load->view('include/header', $data);
 		$this->load->view('front_end/index');
 		$this->load->view('include/footer');

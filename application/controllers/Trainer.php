@@ -7,16 +7,18 @@ class Trainer extends CI_Controller {
 	{
 		$this->load->model('Trainer_model');
 		$role = $this->session->userdata('role');
-		if ($role == 'trainer') {
+		if ($role == 'trainer') 
+		{
 			$this->load->view('include/header_trainer');
 			$this->load->view('include/menu_trainer');
 		}
-		elseif ($role == 'admin') {
+		elseif ($role == 'admin') 
+		{
 			$this->load->view('include/header_admin');
 			$this->load->view('include/menu_admin');
 		}
 		elseif ($role == NULL) {
-			$this->load->view('admin/login');
+			redirect('loginform');
 		}
 
 		$data = array(
@@ -24,10 +26,12 @@ class Trainer extends CI_Controller {
 		 );
 		 $this->load->view('trainer/list_trainer', $data);
 
-		if ($role == 'trainer') {
+		if ($role == 'trainer') 
+		{
 			$this->load->view('include/footer_trainer');
 		}
-		elseif ($role == 'admin') {
+		elseif ($role == 'admin')
+		{
 			$this->load->view('include/footer_admin');
 		}
 	}
@@ -36,28 +40,34 @@ class Trainer extends CI_Controller {
 	{
 		$this->load->model('Trainer_model');
 		$role = $this->session->userdata('role');
-		if ($role == 'trainer') {
+		if ($role == 'trainer')
+		{
 			$this->load->view('include/header_trainer');
 			$this->load->view('include/menu_trainer');
 		}
-		elseif ($role == 'admin') {
+		elseif ($role == 'admin')
+		{
 			$this->load->view('include/header_admin');
 			$this->load->view('include/menu_admin');
 		}
-		elseif ($role == NULL) {
-			$this->load->view('admin/login');
+		elseif ($role == NULL)
+		{
+			redirect('loginform');
 		}
 
 		$data = array(
 			'trainer' => $this->Trainer_model
                 ->detail_trainer($this->session->userdata('email_sess'))
 		 );
+
 		 $this->load->view('trainer/data_diri', $data);
 
-		if ($role == 'trainer') {
+		if ($role == 'trainer') 
+		{
 			$this->load->view('include/footer_trainer');
 		}
-		elseif ($role == 'admin') {
+		elseif ($role == 'admin') 
+		{
 			$this->load->view('include/footer_admin');
 		}
 	}
@@ -97,10 +107,12 @@ class Trainer extends CI_Controller {
 
 		$this->Trainer_model->update_trainer($id, $data);
 
-		if ($this->session->userdata('role') == 'trainer') {
+		if ($this->session->userdata('role') == 'trainer') 
+		{
 			redirect('trainer/data');
 		}
-		elseif ($this->session->userdata('role') == 'admin') {
+		elseif ($this->session->userdata('role') == 'admin') 
+		{
 			redirect('trainer/list');
 		}
 	}
@@ -118,7 +130,7 @@ class Trainer extends CI_Controller {
 			$this->load->view('include/menu_admin');
 		}
 		elseif ($role == NULL) {
-			$this->load->view('admin/login');
+			redirect('loginform');
 		}
 
 		$this->load->view('trainer/tambah_trainer');
