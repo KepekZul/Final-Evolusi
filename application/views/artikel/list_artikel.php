@@ -62,7 +62,7 @@
                             <td>
                               <a href="<?php echo site_url("artikel/detail/$ar->id"); ?>" data-toggle="tooltip"
                                  title="Detail"><button class="btn btn-xs btn-success"><i class="fa fa-search-plus"></i> </button></a>
-                              <a href="#edit<?php echo $ar->id; ?>" data-toggle="modal"><button class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> </button></a>
+                              <a data-toggle="modal" data-target="#edit<?php echo $ar->id; ?>" ><button class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> </button></a>
                               <div id="edit<?php echo $ar->id; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
