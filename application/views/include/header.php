@@ -47,11 +47,10 @@
           <li <?php if($aktif == 'berita') echo "class='active'>" ?> ><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("berita/index/all/1/3"); ?>';">Berita</a></li>
           <li <?php if($aktif == 'artikel') echo "class='active'>" ?> ><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("artikel/index/all/1/3"); ?>';">Artikel</a></li>
           <li <?php if($aktif == 'lomba') echo "class='active'>" ?> ><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("lomba/index/all/1/3"); ?>';">Info Lomba</a></li>
-          <li><?php if($authenticated == 0) { ?> <a href="javascript:void(0)" onclick="location.href='<?php echo site_url("loginform"); ?>';">Login</a></li><?php } ?>
-          <li><?php if($authenticated != 0) { ?> <a href="javascript:void(0)" onclick="location.href='<?php echo site_url("logout"); ?>';">Logout</a></li><?php } ?>
-          <li><?php if($authenticated == 2) { ?> <a href="javascript:void(0)" onclick="location.href='<?php echo site_url("trainer/list"); ?>';">Admin</a></li><?php } ?>
-          <li><?php if($authenticated == 1) { ?> <a href="javascript:void(0)" onclick="location.href='<?php echo site_url("trainer/list"); ?>';">Trainer</a></li><?php } ?>
-
+          <li <?php if($authenticated == 0) { ?> ><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("loginform"); ?>';">Login</a></li><?php } ?>
+          <li <?php if($authenticated != 0) { ?> ><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("logout"); ?>';" style="background-color:rgb(200,200,200); color:black;">Logout</a></li><?php } ?>
+          <li <?php if($authenticated == 2) { ?> ><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("trainer/list"); ?>';" style="background-color:rgb(200,200,200); color:black;">Admin</a></li><?php } ?>
+          <li <?php if($authenticated == 1) { ?> ><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("trainer/list"); ?>';" style="background-color:rgb(200,200,200); color:black;">Trainer</a></li><?php } ?>
         </ul>
       </div>
     </div><!--/.container-->

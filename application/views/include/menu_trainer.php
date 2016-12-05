@@ -55,6 +55,7 @@
         </ul>
       </li>
       <li><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("trainer/data"); ?>';"><i class="fa fa-home"></i> Data Diri</a></li>
+      <li><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("/"); ?>';"><i class="fa fa-home"></i> Halaman Utama</a></li>
       <li><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("logout"); ?>';"><i class="fa fa-home"></i> Log Out</a></li>
     </ul>
   </div>
