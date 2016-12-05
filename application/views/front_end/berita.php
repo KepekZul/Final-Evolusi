@@ -19,8 +19,8 @@
                     </div>
 
                     <div class="col-xs-12 col-sm-10 blog-content">
-                      <h2><a href="javascript:void(0)" onclick="href.location='<?php echo site_url("berita/detail/$ar->id"); ?>';"><?php echo $ar->judul; ?></a></h2>
-                      <a href="javascript:void(0)" onclick="href.location='#';"><img class="img-responsive img-blog" src="<?php echo base_url(); ?>assets/images/<?php echo $ar->foto; ?>" width="100%" alt="" /></a>
+                      <h2><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("berita/detail/$ar->id"); ?>';"><?php echo $ar->judul; ?></a></h2>
+                      <a href="javascript:void(0)" onclick="location.href='#';"><img class="img-responsive img-blog" src="<?php echo base_url(); ?>assets/images/<?php echo $ar->foto; ?>" width="100%" alt="" /></a>
                       <h3><?php $isi = $ar->isi; echo substr($isi, 0, 275); echo '...'; ?></h3>
                       <a class="btn btn-primary readmore" href="<?php echo site_url("berita/detail/$ar->id"); ?>">Read More <i class="fa fa-angle-right"></i></a>
                     </div>
@@ -32,11 +32,11 @@
             <div class="row" style="text-align:center;">
               <ul class="pagination pagination-lg" style="text-align:center;">
                 <?php if($awal != 1) {  $prev = $awal - 3;?>
-                  <li><a href="javascript:void(0)" onclick="href.location='<?php echo site_url("berita/index/all/$prev/3"); ?>';"><i class="fa fa-long-arrow-left"></i>Previous Page</a></li>
+                  <li><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("berita/index/all/$prev/3"); ?>';"><i class="fa fa-long-arrow-left"></i>Previous Page</a></li>
                 <?php } ?>
 
                 <?php if($akhir < $jumlah) { $next = $awal + 3;?>
-                  <li><a href="javascript:void(0)" onclick="href.location='<?php echo site_url("berita/index/all/$next/3"); ?>';">Next Page<i class="fa fa-long-arrow-right"></i></a></li>
+                  <li><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("berita/index/all/$next/3"); ?>';">Next Page<i class="fa fa-long-arrow-right"></i></a></li>
                 <?php } ?>
                 </ul><!--/.pagination-->
             </div>

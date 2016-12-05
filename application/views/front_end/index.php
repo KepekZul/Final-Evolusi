@@ -142,11 +142,11 @@
   <div>
     <div class="social" style="text-align:center;">
       <ul class="social-share">
-        <li><a href="javascript:void(0)" onclick="href.location='#';" style="width:30px; height:30px; line-height:30px;"><i class="fa fa-facebook"></i></a>   Trainer Keilmiahan ITS     </li>
-        <li ><a href="javascript:void(0)" onclick="href.location='#';"style="width:30px; height:30px; line-height:30px;"><i class="fa fa-twitter"></i></a>   @Trainer_ITS</li>
-        <li><a href="javascript:void(0)" onclick="href.location='#';" style="width:30px; height:30px; line-height:30px;"><i class="fa fa-line ">Line</i></a>   @dqp0410b</li>
-        <li><a href="javascript:void(0)" onclick="href.location='#';" style="width:30px; height:30px; line-height:30px;"><i class="fa fa-envelope"></i></a>   trainer.navigator@gmail.com</li>
-        <li><a href="javascript:void(0)" onclick="href.location='#';" style="width:30px; height:30px; line-height:30px;"><i class="fa fa-globe"></i></a>   trainer.its.ac.id</li>
+        <li><a href="javascript:void(0)" onclick="location.href='#';" style="width:30px; height:30px; line-height:30px;"><i class="fa fa-facebook"></i></a>   Trainer Keilmiahan ITS     </li>
+        <li ><a href="javascript:void(0)" onclick="location.href='#';"style="width:30px; height:30px; line-height:30px;"><i class="fa fa-twitter"></i></a>   @Trainer_ITS</li>
+        <li><a href="javascript:void(0)" onclick="location.href='#';" style="width:30px; height:30px; line-height:30px;"><i class="fa fa-line ">Line</i></a>   @dqp0410b</li>
+        <li><a href="javascript:void(0)" onclick="location.href='#';" style="width:30px; height:30px; line-height:30px;"><i class="fa fa-envelope"></i></a>   trainer.navigator@gmail.com</li>
+        <li><a href="javascript:void(0)" onclick="location.href='#';" style="width:30px; height:30px; line-height:30px;"><i class="fa fa-globe"></i></a>   trainer.its.ac.id</li>
       </ul>
       <div class="search">
         <form role="form">

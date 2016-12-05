@@ -7,10 +7,10 @@
 
     <!-- Breadcrumb -->
     <div class="bread-crumb pull-right">
-      <a href="javascript:void(0)" onclick="href.location='index.html';"><i class="fa fa-home"></i> Home</a>
+      <a href="javascript:void(0)" onclick="location.href='index.html';"><i class="fa fa-home"></i> Home</a>
       <!-- Divider -->
       <span class="divider">/</span>
-      <a href="javascript:void(0)" onclick="href.location='#';" class="bread-current">Dashboard</a>
+      <a href="javascript:void(0)" onclick="location.href='#';" class="bread-current">Dashboard</a>
     </div>
 
     <div class="clearfix"></div>
@@ -30,7 +30,7 @@
             <div class="widget-head">
               <div class="pull-left">Data Artikel</div>
               <div class="widget-icons pull-right">
-                <a href="javascript:void(0)" onclick="href.location='<?php echo base_url(); ?>artikel/tambah_artikel';"><i class="fa fa-plus"> Tambah Baru</i></a>
+                <a href="javascript:void(0)" onclick="location.href='<?php echo base_url(); ?>artikel/tambah_artikel';" style="color:black;"><i class="fa fa-plus"> Tambah Baru</i></a>
               </div>
               <div class="clearfix"></div>
             </div>
@@ -60,9 +60,9 @@
                             <td><?php echo $ar->tanggal ?></td>
                             <td><?php echo $ar->kategori ?></td>
                             <td>
-                              <a href="javascript:void(0)" onclick="href.location='<?php echo base_url(); ?>artikel/detail_artikel/<?php echo $ar->id; ?>';" data-toggle="tooltip"
+                              <a href="javascript:void(0)" onclick="location.href='<?php echo base_url(); ?>artikel/detail_artikel/<?php echo $ar->id; ?>';" data-toggle="tooltip"
                                  title="Detail"><button class="btn btn-xs btn-success"><i class="fa fa-search-plus"></i> </button></a>
-                              <a href="javascript:void(0)" onclick="href.location='#edit<?php echo $ar->id; ?>';" data-toggle="modal"><button class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> </button></a>
+                              <a href="javascript:void(0)" onclick="location.href='#edit<?php echo $ar->id; ?>';" data-toggle="modal"><button class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> </button></a>
                               <div id="edit<?php echo $ar->id; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
@@ -126,7 +126,7 @@
                                   </div>
                                 </div>
                               </div>
-                              <a href="javascript:void(0)" onclick="href.location='<?php echo base_url(); ?>artikel/hapus_artikel/<?php echo $ar->id ?>';">
+                              <a href="javascript:void(0)" onclick="location.href='<?php echo base_url(); ?>artikel/hapus_artikel/<?php echo $ar->id ?>';">
                                 <button class="btn btn-xs btn-danger" data-toggle="tooltip" title="Hapus"><i class="fa fa-times"></i> </button></a>
                             </td>
                           </tr>
