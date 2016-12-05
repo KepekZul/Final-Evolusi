@@ -260,7 +260,7 @@
           <img class="img-responsive" src="<?php echo base_url(); ?>assets/images/gallery/galeri1.jpg" alt="">
           <div class="overlay">
             <div class="recent-work-inner">
-              <h3><a href="#">Business theme</a> </h3>
+              <h3><a href="javascript:void(0)" onclick="href.location='#';">Business theme</a> </h3>
               <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
               <a class="preview" href="<?php echo base_url(); ?>assets/images/gallery/galeri1.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
             </div>
@@ -273,7 +273,7 @@
           <img class="img-responsive" src="<?php echo base_url(); ?>assets/images/gallery/galeri2.jpg" alt="">
           <div class="overlay">
             <div class="recent-work-inner">
-              <h3><a href="#">Business theme</a></h3>
+              <h3><a href="javascript:void(0)" onclick="href.location='#';">Business theme</a></h3>
               <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
               <a class="preview" href="<?php echo base_url(); ?>assets/images/gallery/galeri2.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
             </div>
@@ -286,7 +286,7 @@
           <img class="img-responsive" src="<?php echo base_url(); ?>assets/images/gallery/galeri3.jpg" alt="">
           <div class="overlay">
             <div class="recent-work-inner">
-              <h3><a href="#">Business theme </a></h3>
+              <h3><a href="javascript:void(0)" onclick="href.location='#';">Business theme </a></h3>
               <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
               <a class="preview" href="<?php echo base_url(); ?>assets/images/gallery/galeri3.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
             </div>
@@ -299,7 +299,7 @@
           <img class="img-responsive" src="<?php echo base_url(); ?>assets/images/gallery/galeri4.jpg" alt="">
           <div class="overlay">
             <div class="recent-work-inner">
-              <h3><a href="#">Business theme </a></h3>
+              <h3><a href="javascript:void(0)" onclick="href.location='#';">Business theme </a></h3>
               <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
               <a class="preview" href="<?php echo base_url(); ?>assets/images/gallery/galeri4.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
             </div>
@@ -312,7 +312,7 @@
           <img class="img-responsive" src="<?php echo base_url(); ?>assets/images/gallery/galeri5.jpg" alt="">
           <div class="overlay">
             <div class="recent-work-inner">
-              <h3><a href="#">Business theme</a></h3>
+              <h3><a href="javascript:void(0)" onclick="href.location='#';">Business theme</a></h3>
               <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
               <a class="preview" href="<?php echo base_url(); ?>assets/images/gallery/galeri5.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
             </div>
@@ -325,7 +325,7 @@
           <img class="img-responsive" src="<?php echo base_url(); ?>assets/images/gallery/galeri6.jpg" alt="">
           <div class="overlay">
             <div class="recent-work-inner">
-              <h3><a href="#">Business theme </a></h3>
+              <h3><a href="javascript:void(0)" onclick="href.location='#';">Business theme </a></h3>
               <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
               <a class="preview" href="<?php echo base_url(); ?>assets/images/gallery/galeri6.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
             </div>
@@ -338,7 +338,7 @@
           <img class="img-responsive" src="<?php echo base_url(); ?>assets/images/gallery/galeri6.jpg" alt="">
           <div class="overlay">
             <div class="recent-work-inner">
-              <h3><a href="#">Business theme </a></h3>
+              <h3><a href="javascript:void(0)" onclick="href.location='#';">Business theme </a></h3>
               <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
               <a class="preview" href="<?php echo base_url(); ?>assets/images/gallery/galeri6.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
             </div>
@@ -351,7 +351,7 @@
           <img class="img-responsive" src="<?php echo base_url(); ?>assets/images/gallery/galeri6.jpg" alt="">
           <div class="overlay">
             <div class="recent-work-inner">
-              <h3><a href="#">Business theme </a></h3>
+              <h3><a href="javascript:void(0)" onclick="href.location='#';">Business theme </a></h3>
               <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
               <a class="preview" href="<?php echo base_url(); ?>assets/images/gallery/galeri6.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
             </div>
@@ -368,11 +368,11 @@
   <div>
     <div class="social" style="text-align:center;">
       <ul class="social-share">
-        <li><a href="#" style="width:30px; height:30px; line-height:30px;"><i class="fa fa-facebook"></i></a>   Trainer Keilmiahan ITS     </li>
-        <li ><a href="#"style="width:30px; height:30px; line-height:30px;"><i class="fa fa-twitter"></i></a>   @Trainer_ITS</li>
-        <li><a href="#" style="width:30px; height:30px; line-height:30px;"><i class="fa fa-line ">Line</i></a>   @dqp0410b</li>
-        <li><a href="#" style="width:30px; height:30px; line-height:30px;"><i class="fa fa-envelope"></i></a>   trainer.navigator@gmail.com</li>
-        <li><a href="#" style="width:30px; height:30px; line-height:30px;"><i class="fa fa-globe"></i></a>   trainer.its.ac.id</li>
+        <li><a href="javascript:void(0)" onclick="href.location='#';" style="width:30px; height:30px; line-height:30px;"><i class="fa fa-facebook"></i></a>   Trainer Keilmiahan ITS     </li>
+        <li ><a href="javascript:void(0)" onclick="href.location='#';"style="width:30px; height:30px; line-height:30px;"><i class="fa fa-twitter"></i></a>   @Trainer_ITS</li>
+        <li><a href="javascript:void(0)" onclick="href.location='#';" style="width:30px; height:30px; line-height:30px;"><i class="fa fa-line ">Line</i></a>   @dqp0410b</li>
+        <li><a href="javascript:void(0)" onclick="href.location='#';" style="width:30px; height:30px; line-height:30px;"><i class="fa fa-envelope"></i></a>   trainer.navigator@gmail.com</li>
+        <li><a href="javascript:void(0)" onclick="href.location='#';" style="width:30px; height:30px; line-height:30px;"><i class="fa fa-globe"></i></a>   trainer.its.ac.id</li>
       </ul>
       <div class="search">
         <form role="form">

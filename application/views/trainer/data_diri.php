@@ -7,10 +7,10 @@
 
     <!-- Breadcrumb -->
     <div class="bread-crumb pull-right">
-      <a href="<?php echo site_url("trainer/list"); ?>"><i class="fa fa-home"></i>Trainer</a>
+      <a href="javascript:void(0)" onclick="href.location='<?php echo site_url("trainer/list"); ?>';"><i class="fa fa-home"></i>Trainer</a>
       <!-- Divider -->
       <span class="divider">/</span>
-      <a href="#" class="bread-current">Data Trainer</a>
+      <a href="javascript:void(0)" onclick="href.location='#';" class="bread-current">Data Trainer</a>
     </div>
 
     <div class="clearfix"></div>

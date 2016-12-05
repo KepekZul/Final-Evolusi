@@ -7,10 +7,10 @@
 
     <!-- Breadcrumb -->
     <div class="bread-crumb pull-right">
-      <a href="<?php echo site_url("lomba/list"); ?>"><i class="fa fa-home"></i>Lomba</a>
+      <a href="javascript:void(0)" onclick="href.location='<?php echo site_url("lomba/list"); ?>';"><i class="fa fa-home"></i>Lomba</a>
       <!-- Divider -->
       <span class="divider">/</span>
-      <a href="#" class="bread-current">Tambah Lomba</a>
+      <a href="javascript:void(0)" onclick="href.location='#';" class="bread-current">Tambah Lomba</a>
     </div>
 
     <div class="clearfix"></div>

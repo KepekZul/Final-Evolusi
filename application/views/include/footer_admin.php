@@ -14,7 +14,7 @@
 <!-- Footer ends -->
 
 <!-- Scroll to top -->
-<span class="totop"><a href="#"><i class="fa fa-chevron-up"></i></a></span>
+<span class="totop"><a href="javascript:void(0)" onclick="href.location='#';"><i class="fa fa-chevron-up"></i></a></span>
 
 <!-- JS -->
 <script src="<?php echo base_url(); ?>assets_backend/js/jquery.js"></script> <!-- jQuery -->
