@@ -9,10 +9,10 @@
           <div class="media">
             <div class="parrent pull-left">
               <ul class="nav nav-tabs nav-stacked">
-                <li class="active"><a href="#tab1" data-toggle="tab" class="analistic-01">SOP Pemateri</a></li>
-                <li ><a href="#tab2" data-toggle="tab" class="analistic-02">SOP Roadshow TFT</a></li>
-                <li class=""><a href="#tab3" data-toggle="tab" class="tehnical">SOP SON</a></li>
-                <li class=""><a href="#tab4" data-toggle="tab" class="tehnical">SOP Koreksi KTI</a></li>
+                <li class="active"><a href="javascript:void(0)" onclick="location.href='#tab1';" data-toggle="tab" class="analistic-01">SOP Pemateri</a></li>
+                <li ><a href="javascript:void(0)" onclick="location.href='#tab2';" data-toggle="tab" class="analistic-02">SOP Roadshow TFT</a></li>
+                <li class=""><a href="javascript:void(0)" onclick="location.href='#tab3';" data-toggle="tab" class="tehnical">SOP SON</a></li>
+                <li class=""><a href="javascript:void(0)" onclick="location.href='#tab4';" data-toggle="tab" class="tehnical">SOP Koreksi KTI</a></li>
               </ul>
             </div>
 

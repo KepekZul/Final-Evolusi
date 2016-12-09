@@ -16,7 +16,7 @@
       <div class="col-md-4">
         <!-- Logo. -->
         <div class="logo">
-          <h1><a href="#">Halaman Trainer</a></h1>
+          <h1><a href="javascript:void(0)" onclick="location.href='#';">Halaman Trainer</a></h1>
         </div>
         <!-- Logo ends -->
       </div>
@@ -40,22 +40,23 @@
 
   <!-- Sidebar -->
   <div class="sidebar">
-    <div class="sidebar-dropdown"><a href="#">Navigation</a></div>
+    <div class="sidebar-dropdown"><a href="javascript:void(0)" onclick="location.href='#';">Navigation</a></div>
 
     <!--- Sidebar navigation -->
     <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
     <ul id="nav">
       <!-- Main menu with font awesome icon -->
-      <li><a href="<?php echo site_url("trainer/list"); ?>"><i class="fa fa-home"></i> Trainer</a></li>
-      <li class="has_sub"><a href="#"><i class="fa fa-list-alt"></i> Informasi  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+      <li><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("trainer/list"); ?>';"><i class="fa fa-home"></i> Trainer</a></li>
+      <li class="has_sub"><a href="javascript:void(0)" onclick="location.href='#';"><i class="fa fa-list-alt"></i> Informasi  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
         <ul>
-          <li><a href="<?php echo site_url('artikel/list_artikel'); ?>">Artikel</a></li>
-          <li><a href="<?php echo site_url('berita/list_berita'); ?>">Berita</a></li>
-          <li><a href="<?php echo site_url('lomba/list_lomba'); ?>">Lomba</a></li>
+          <li><a href="javascript:void(0)" onclick="location.href='<?php echo site_url('artikel/list_artikel'); ?>';">Artikel</a></li>
+          <li><a href="javascript:void(0)" onclick="location.href='<?php echo site_url('berita/list_berita'); ?>';">Berita</a></li>
+          <li><a href="javascript:void(0)" onclick="location.href='<?php echo site_url('lomba/list_lomba'); ?>';">Lomba</a></li>
         </ul>
       </li>
-      <li><a href="<?php echo site_url("trainer/data"); ?>"><i class="fa fa-home"></i> Data Diri</a></li>
-      <li><a href="<?php echo site_url("logout"); ?>"><i class="fa fa-home"></i> Log Out</a></li>
+      <li><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("trainer/data"); ?>';"><i class="fa fa-home"></i> Data Diri</a></li>
+      <li><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("/"); ?>';"><i class="fa fa-home"></i> Halaman Utama</a></li>
+      <li><a href="javascript:void(0)" onclick="location.href='<?php echo site_url("logout"); ?>';"><i class="fa fa-home"></i> Log Out</a></li>
     </ul>
   </div>
 
