@@ -11,7 +11,12 @@ class Lomba extends CI_Controller {
 		$jumlah = $this->uri->segment(5);
 		$data['aktif'] = "lomba";
 
-		if($this->session->userdata('role') == 'admin')
+		if($this->session->userdata('role') == 'user')
+		{
+			$data['authenticated'] = 3;
+		}
+
+		elseif($this->session->userdata('role') == 'admin')
 		{
 			$data['authenticated'] = 2;
 		}
@@ -42,7 +47,11 @@ class Lomba extends CI_Controller {
 		$this->load->model('Lomba_model');
 		$data['aktif'] = "lomba";
 
-		if($this->session->userdata('role') == 'admin')
+		if($this->session->userdata('role') == 'user')
+		{
+			$data['authenticated'] = 3;
+		}
+		elseif($this->session->userdata('role') == 'admin')
 		{
 			$data['authenticated'] = 2;
 		}
@@ -55,6 +64,8 @@ class Lomba extends CI_Controller {
 			$data['authenticated'] = 0;
 		}
 
+		$this->load->view('include/header', $data);
+
 		$data['lomba'] = $this->Lomba_model->detail_lomba($id);
 
 		if($data['lomba'] == NULL)
@@ -62,7 +73,6 @@ class Lomba extends CI_Controller {
 			redirect('lomba/list');
 		}
 
-		$this->load->view('include/header', $data);
 		$this->load->view('lomba/detail', $data);
 		$this->load->view('include/footer');
 	}
@@ -71,16 +81,16 @@ class Lomba extends CI_Controller {
 	{
 		$this->load->model('Lomba_model');
 		$role = $this->session->userdata('role');
-		if ($role == 'trainer') {
-			$this->load->view('include/header_trainer');
-			$this->load->view('include/menu_trainer');
+		
+		if($role == NULL || $role == 'user') 
+		{
+			redirect('home');
 		}
-		elseif ($role == 'admin') {
-			$this->load->view('include/header_admin');
-			$this->load->view('include/menu_admin');
-		}
-		elseif ($role == NULL) {
-			$this->load->view('admin/login');
+		else
+		{
+			$data['role'] = $role;
+			$this->load->view('include/header_user', $data);
+			$this->load->view('include/menu_user', $data);
 		}
 
 		$this->load->model('Lomba_model');
@@ -88,39 +98,26 @@ class Lomba extends CI_Controller {
 			'lomba' => $this->Lomba_model->list_all_lomba()
 		 );
 		 $this->load->view('lomba/list_lomba', $data);
-
-		if ($role == 'trainer') {
-			$this->load->view('include/footer_trainer');
-		}
-		elseif ($role == 'admin') {
-			$this->load->view('include/footer_admin');
-		}
+		 $this->load->view('include/footer_user');
 	}
 
 	public function tambah_lomba()
 	{
 		$this->load->model('Lomba_model');
 		$role = $this->session->userdata('role');
-		if ($role == 'trainer') {
-			$this->load->view('include/header_trainer');
-			$this->load->view('include/menu_trainer');
+		if($role == NULL || $role == 'user') 
+		{
+			redirect('home');
 		}
-		elseif ($role == 'admin') {
-			$this->load->view('include/header_admin');
-			$this->load->view('include/menu_admin');
-		}
-		elseif ($role == NULL) {
-			$this->load->view('admin/login');
+		else
+		{
+			$data['role'] = $role;
+			$this->load->view('include/header_user', $data);
+			$this->load->view('include/menu_user', $data);
 		}
 
 		$this->load->view('lomba/tambah_lomba');
-
-		if ($role == 'trainer') {
-			$this->load->view('include/footer_trainer');
-		}
-		elseif ($role == 'admin') {
-			$this->load->view('include/footer_admin');
-		}
+		$this->load->view('include/footer_user');
 	}
 
 	public function post_lomba()
@@ -188,9 +185,9 @@ class Lomba extends CI_Controller {
 
 	public function hapus_lomba($id)
 	{
-		if($this->session->userdata('role') == NULL)
+		if($this->session->userdata('role') == NULL ||  $this->session->userdata('role') == 'user')
 		{
-			redirect('loginform');
+			redirect('home');
 		}
 
 		$this->load->model('Lomba_model');

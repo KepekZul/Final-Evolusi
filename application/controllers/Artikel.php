@@ -11,7 +11,12 @@ class Artikel extends CI_Controller {
 		$jumlah = $this->uri->segment(5);
 		$data['aktif'] = "artikel";
 
-		if($this->session->userdata('role') == 'admin')
+		if($this->session->userdata('role') == 'user')
+		{
+			$data['authenticated'] = 3;
+		}
+
+		elseif($this->session->userdata('role') == 'admin')
 		{
 			$data['authenticated'] = 2;
 		}
@@ -41,7 +46,12 @@ class Artikel extends CI_Controller {
 		$this->load->model('Artikel_model');
 		$data['aktif'] = "artikel";
 
-		if($this->session->userdata('role') == 'admin')
+		if($this->session->userdata('role') == 'user')
+		{
+			$data['authenticated'] = 3;
+		}
+
+		elseif($this->session->userdata('role') == 'admin')
 		{
 			$data['authenticated'] = 2;
 		}
@@ -54,6 +64,8 @@ class Artikel extends CI_Controller {
 			$data['authenticated'] = 0;
 		}
 
+		$this->load->view('include/header', $data);
+
 		$data['artikel'] = $this->Artikel_model->detail_artikel($id);
 
 		if($data['artikel'] == NULL)
@@ -61,7 +73,7 @@ class Artikel extends CI_Controller {
 			redirect('artikel/list');
 		}
 
-		$this->load->view('include/header', $data);
+		
 		$this->load->view('artikel/detail', $data);
 		$this->load->view('include/footer');
 	}
@@ -70,28 +82,22 @@ class Artikel extends CI_Controller {
 	{
 		$this->load->model('Artikel_model');
 		$role = $this->session->userdata('role');
-		if ($role == 'trainer') {
-			$this->load->view('include/header_trainer');
-			$this->load->view('include/menu_trainer');
+		if($role == NULL || $role == 'user') 
+		{
+			redirect('home');
 		}
-		elseif ($role == 'admin') {
-			$this->load->view('include/header_admin');
-			$this->load->view('include/menu_admin');
+		else
+		{
+			$data['role'] = $role;
+			$this->load->view('include/header_user', $data);
+			$this->load->view('include/menu_user', $data);
 		}
-		elseif ($role == NULL) {
-			$this->load->view('admin/login');		}
 
 		$data = array(
 			'artikel' => $this->Artikel_model->list_all_artikel()
 		 );
 		 $this->load->view('artikel/list_artikel', $data);
-
-		if ($role == 'trainer') {
-			$this->load->view('include/footer_trainer');
-		}
-		elseif ($role == 'admin') {
-			$this->load->view('include/footer_admin');
-		}
+		 $this->load->view('include/footer_user');
 
 	}
 
@@ -99,26 +105,19 @@ class Artikel extends CI_Controller {
 	{
 		$this->load->model('Artikel_model');
 		$role = $this->session->userdata('role');
-		if ($role == 'trainer') {
-			$this->load->view('include/header_trainer');
-			$this->load->view('include/menu_trainer');
+		if($role == NULL || $role == 'user') 
+		{
+			redirect('home');
 		}
-		elseif ($role == 'admin') {
-			$this->load->view('include/header_admin');
-			$this->load->view('include/menu_admin');
-		}
-		elseif ($role == NULL) {
-			$this->load->view('admin/login');
+		else
+		{
+			$data['role'] = $role;
+			$this->load->view('include/header_user', $data);
+			$this->load->view('include/menu_user', $data);
 		}
 
 		$this->load->view('artikel/tambah_artikel');
-
-		if ($role == 'trainer') {
-			$this->load->view('include/footer_trainer');
-		}
-		elseif ($role == 'admin') {
-			$this->load->view('include/footer_admin');
-		}
+		$this->load->view('include/footer_user');
 	}
 
 	public function post_artikel()
@@ -187,9 +186,9 @@ class Artikel extends CI_Controller {
 
 	public function hapus_artikel($id)
 	{
-		if($this->session->userdata('role') == NULL)
+		if($this->session->userdata('role') == NULL ||  $this->session->userdata('role') == 'user')
 		{
-			redirect('loginform');
+			redirect('home');
 		}
 
 		$this->load->model('Artikel_model');

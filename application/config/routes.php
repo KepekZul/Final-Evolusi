@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['loginform'] = 'Login/form';
 $route['login'] = 'Login/login_post';
 $route['logout'] = 'Login/logout';
+$route['register'] = 'Login/register';
 
 //-------Route Home------------------------
 
@@ -63,6 +64,7 @@ $route['home'] = 'Home/index';
 $route['about'] = 'Home/about';
 $route['anggota'] = 'Home/anggota';
 $route['sop'] = 'Home/sop';
+$route['registrasi'] = 'Home/register';
 
 //-------Route Artikel--------------------------
 $route['artikel/list'] = 'Artikel/list_artikel/$1';
@@ -98,3 +100,15 @@ $route['trainer/post'] = 'Trainer/post_trainer';
 $route['trainer/update'] = 'Trainer/update_trainer';
 $route['trainer/hapus/(:any)'] = 'Trainer/hapus_trainer/$1';
 $route['trainer/data'] = 'Trainer/data_diri';
+
+//------- Route User --------------------------
+$route['user/list'] = 'User/list_user';
+$route['user/update'] = 'User/update_user';
+$route['user/hapus/(:any)'] = 'User/hapus_user/$1';
+$route['user/data'] = 'User/data_diri';
+$route['user/request_training'] = 'User/request_training';
+$route['user/request'] = 'User/request_process';
+$route['user/request_list'] = 'User/request_list';
+$route['user/request_detail/(:any)'] = 'User/request_detail/$1';
+$route['user/request_terima/(:any)'] = 'User/request_terima/$1';
+$route['user/request_tolak/(:any)'] = 'User/request_tolak/$1';

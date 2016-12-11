@@ -3,14 +3,14 @@
 
   <!-- Page heading -->
   <div class="page-head">
-    <h2 class="pull-left"><i class="fa fa-table"></i> Trainer</h2>
+    <h2 class="pull-left"><i class="fa fa-table"></i> Pengguna</h2>
 
     <!-- Breadcrumb -->
      <div class="bread-crumb pull-right">
-      <a href="javascript:void(0)" onclick="location.href='<?php echo site_url("trainer/list"); ?>';"><i class="fa fa-home"></i>Trainer</a>
+      <a href="javascript:void(0)" onclick="location.href='<?php echo site_url("trainer/list"); ?>';"><i class="fa fa-home"></i>Pengguna</a>
       <!-- Divider -->
       <span class="divider">/</span>
-      <a href="javascript:void(0)" onclick="location.href='#';" class="bread-current">List Trainer</a>
+      <a href="javascript:void(0)" onclick="location.href='#';" class="bread-current">List Pengguna</a>
     </div>
 
     <div class="clearfix"></div>
@@ -28,11 +28,8 @@
 
           <div class="widget">
             <div class="widget-head">
-              <div class="pull-left">Data Trainer</div>
+              <div class="pull-left">Data Pengguna</div>
               <div class="widget-icons pull-right">
-                <?php if ($this->session->userdata('role') == 'admin'){ ?>
-                  <a href="javascript:void(0)" onclick="location.href='<?php echo site_url("trainer/tambah"); ?>';"style="color:black;"><i class="fa fa-plus"> Tambah Baru</i></a>
-                  <?php } ?>
                 </div>
                 <div class="clearfix"></div>
               </div>
@@ -57,7 +54,7 @@
                         </thead>
                         <tbody>
                           <?php $nomor = 1; ?>
-                          <?php foreach($trainer as $ar){ ?>
+                          <?php foreach($user as $ar){ ?>
                             <tr>
                               <td><?php echo $nomor ?></td>
                               <td><?php echo $ar->nama ?></td>
@@ -66,13 +63,13 @@
                               <td><?php echo $ar->jurusan."/".$ar->fakultas ?></td>
                               <td><?php echo $ar->email ?></td>
                               <td>
-                                <a href="#detail<?php echo $ar->id; ?>" data-toggle="modal"><button class="btn btn-xs btn-success"><i class="fa fa-search-plus"></i> </button></a>
-                                <div id="detail<?php echo $ar->id; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <a href="#detail<?php echo $nomor; ?>" data-toggle="modal"><button class="btn btn-xs btn-success"><i class="fa fa-search-plus"></i> </button></a>
+                                <div id="detail<?php echo $nomor; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                        <h4 class="modal-title">Detail Trainer</h4>
+                                        <h4 class="modal-title">Detail Pengguna</h4>
                                       </div>
                                       <div class="modal-body">
                                         <div class="row">
@@ -85,8 +82,13 @@
                                                 <!-- Form starts.  -->
                                                 <form class="form-horizontal" role="form" action="#" method="post">
 
-                                                  <input type="hidden" name="id" id="id" class="form-control" placeholder="<?php echo $ar->id; ?>" value="<?php echo $ar->id; ?>" readonly="readonly">
 
+                                                  <div class="form-group">
+                                                    <label class="col-lg-2 control-label">Email</label>
+                                                    <div class="col-lg-5">
+                                                      <input type="text" name="email" id="Email" class="form-control" placeholder="<?php echo $ar->email; ?>" value="<?php echo $ar->email; ?>" readonly="readonly">
+                                                    </div>
+                                                  </div>
 
                                                   <div class="form-group">
                                                     <label class="col-lg-2 control-label">Nama</label>
@@ -98,14 +100,14 @@
                                                   <div class="form-group">
                                                     <label class="col-lg-2 control-label">NRP</label>
                                                     <div class="col-lg-5">
-                                                      <input type="text" name="NRP" id="NRP" class="form-control" placeholder="<?php echo $ar->nrp; ?>" value="<?php echo $ar->nrp; ?>" readonly="readonly">
+                                                      <input type="text" name="nrp" id="NRP" class="form-control" placeholder="<?php echo $ar->nrp; ?>" value="<?php echo $ar->nrp; ?>" readonly="readonly">
                                                     </div>
                                                   </div>
 
                                                   <div class="form-group">
                                                     <label class="col-lg-2 control-label">Angkatan</label>
                                                     <div class="col-lg-5">
-                                                      <input type="text" name="Angkatan" id="Angkatan" class="form-control" placeholder="<?php echo $ar->angkatan; ?>" value="<?php echo $ar->angkatan; ?>" readonly="readonly">
+                                                      <input type="text" name="angkatan" id="Angkatan" class="form-control" placeholder="<?php echo $ar->angkatan; ?>" value="<?php echo $ar->angkatan; ?>" readonly="readonly">
                                                     </div>
                                                   </div>
 
@@ -119,59 +121,23 @@
                                                   <div class="form-group">
                                                     <label class="col-lg-2 control-label">Fakultas</label>
                                                     <div class="col-lg-5">
-                                                      <input type="text" name="Fakultas" id="Fakultas" class="form-control" placeholder="<?php echo $ar->fakultas; ?>" value="<?php echo $ar->fakultas; ?>" readonly="readonly">
+                                                      <input type="text" name="fakultas" id="Fakultas" class="form-control" placeholder="<?php echo $ar->fakultas; ?>" value="<?php echo $ar->fakultas; ?>" readonly="readonly">
                                                     </div>
                                                   </div>
 
                                                   <div class="form-group">
                                                     <label class="col-lg-2 control-label">HP</label>
                                                     <div class="col-lg-5">
-                                                      <input type="text" name="HP" id="HP" class="form-control" placeholder="<?php echo $ar->hp; ?>" value="<?php echo $ar->hp; ?>" readonly="readonly">
+                                                      <input type="text" name="hp" id="HP" class="form-control" placeholder="<?php echo $ar->hp; ?>" value="<?php echo $ar->hp; ?>" readonly="readonly">
                                                     </div>
                                                   </div>
 
-                                                  <div class="form-group">
-                                                    <label class="col-lg-2 control-label">Email</label>
+                                                   <div class="form-group">
+                                                    <label class="col-lg-2 control-label">Alamat</label>
                                                     <div class="col-lg-5">
-                                                      <input type="text" name="Email" id="Email" class="form-control" placeholder="<?php echo $ar->email; ?>" value="<?php echo $ar->email; ?>" readonly="readonly">
+                                                      <input type="text" name="alamat" id="HP" class="form-control" placeholder="<?php echo $ar->alamat; ?>" value="<?php echo $ar->alamat; ?>" readonly="readonly">
                                                     </div>
                                                   </div>
-
-                                                  <div class="form-group">
-                                                    <label class="col-lg-2 control-label">Kota</label>
-                                                    <div class="col-lg-5">
-                                                      <input type="text" name="asal_kota" id="asal_kota" class="form-control" placeholder="<?php echo $ar->asal_kota; ?>" value="<?php echo $ar->asal_kota; ?>" readonly="readonly">
-                                                    </div>
-                                                  </div>
-
-                                                  <div class="form-group">
-                                                    <label class="col-lg-2 control-label">Provinsi</label>
-                                                    <div class="col-lg-5">
-                                                      <input type="text" name="asal_provinsi" id="asal_provinsi" class="form-control" placeholder="<?php echo $ar->asal_provinsi; ?>" value="<?php echo $ar->asal_provinsi; ?>" readonly="readonly">
-                                                    </div>
-                                                  </div>
-
-                                                  <div class="form-group">
-                                                    <label class="col-lg-2 control-label">Line</label>
-                                                    <div class="col-lg-5">
-                                                      <input type="text" name="Line" id="Line" class="form-control" placeholder="<?php echo $ar->line; ?>" value="<?php echo $ar->line; ?>" readonly="readonly">
-                                                    </div>
-                                                  </div>
-
-                                                  <div class="form-group">
-                                                    <label class="col-lg-2 control-label">twitter</label>
-                                                    <div class="col-lg-5">
-                                                      <input type="text" name="twitter" id="twitter" class="form-control" placeholder="<?php echo $ar->twitter; ?>" value="<?php echo $ar->twitter; ?>" readonly="readonly">
-                                                    </div>
-                                                  </div>
-
-                                                  <div class="form-group">
-                                                    <label class="col-lg-2 control-label">Facebook</label>
-                                                    <div class="col-lg-5">
-                                                      <input type="text" name="Facebook" id="Facebook" class="form-control" placeholder="<?php echo $ar->facebook; ?>" value="<?php echo $ar->facebook; ?>" readonly="readonly">
-                                                    </div>
-                                                  </div>
-
 
                                                 </form>
                                               </div>
@@ -183,13 +149,13 @@
                                   </div>
                                 </div>
                                 <?php if ($this->session->userdata('role') == 'admin'){ ?>
-                                  <a data-target="#edit<?php echo $ar->id; ?>" data-toggle="modal"><button class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> </button></a>
-                                  <div id="edit<?php echo $ar->id; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <a data-target="#edit<?php echo $nomor; ?>" data-toggle="modal"><button class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> </button></a>
+                                  <div id="edit<?php echo $nomor; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                       <div class="modal-content">
                                         <div class="modal-header">
                                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                          <h4 class="modal-title">Edit Trainer</h4>
+                                          <h4 class="modal-title">Edit Pengguna</h4>
                                         </div>
                                         <div class="modal-body">
                                           <div class="row">
@@ -200,9 +166,15 @@
 
                                                   <br />
                                                   <!-- Form starts.  -->
-                                                  <form class="form-horizontal" role="form" action="<?php echo site_url("trainer/update"); ?>" method="post">
+                                                  <form class="form-horizontal" role="form" action="<?php echo site_url("user/update"); ?>" method="post">
 
-                                                    <input type="hidden" name="id" id="id" class="form-control" placeholder="<?php echo $ar->id; ?>" value="<?php echo $ar->id; ?>" readonly="readonly">
+
+                                                    <div class="form-group">
+                                                      <label class="col-lg-2 control-label">Email</label>
+                                                      <div class="col-lg-5">
+                                                        <input type="text" name="email" id="Email" class="form-control" placeholder="<?php echo $ar->email; ?>" value="<?php echo $ar->email; ?>" readonly="readonly">
+                                                      </div>
+                                                    </div>
 
                                                     <div class="form-group">
                                                       <label class="col-lg-2 control-label">Nama</label>
@@ -214,14 +186,14 @@
                                                     <div class="form-group">
                                                       <label class="col-lg-2 control-label">NRP</label>
                                                       <div class="col-lg-5">
-                                                        <input type="text" name="NRP" id="NRP" class="form-control" placeholder="<?php echo $ar->nrp; ?>" value="<?php echo $ar->nrp; ?>">
+                                                        <input type="text" name="nrp" id="NRP" class="form-control" placeholder="<?php echo $ar->nrp; ?>" value="<?php echo $ar->nrp; ?>">
                                                       </div>
                                                     </div>
 
                                                     <div class="form-group">
                                                       <label class="col-lg-2 control-label">Angkatan</label>
                                                       <div class="col-lg-5">
-                                                        <input type="text" name="Angkatan" id="Angkatan" class="form-control" placeholder="<?php echo $ar->angkatan; ?>" value="<?php echo $ar->angkatan; ?>">
+                                                        <input type="text" name="angkatan" id="Angkatan" class="form-control" placeholder="<?php echo $ar->angkatan; ?>" value="<?php echo $ar->angkatan; ?>">
                                                       </div>
                                                     </div>
 
@@ -235,59 +207,25 @@
                                                     <div class="form-group">
                                                       <label class="col-lg-2 control-label">Fakultas</label>
                                                       <div class="col-lg-5">
-                                                        <input type="text" name="Fakultas" id="Fakultas" class="form-control" placeholder="<?php echo $ar->fakultas; ?>" value="<?php echo $ar->fakultas; ?>">
+                                                        <input type="text" name="fakultas" id="Fakultas" class="form-control" placeholder="<?php echo $ar->fakultas; ?>" value="<?php echo $ar->fakultas; ?>">
                                                       </div>
                                                     </div>
 
                                                     <div class="form-group">
                                                       <label class="col-lg-2 control-label">HP</label>
                                                       <div class="col-lg-5">
-                                                        <input type="text" name="HP" id="HP" class="form-control" placeholder="<?php echo $ar->hp; ?>" value="<?php echo $ar->hp; ?>">
+                                                        <input type="text" name="hp" id="HP" class="form-control" placeholder="<?php echo $ar->hp; ?>" value="<?php echo $ar->hp; ?>">
                                                       </div>
                                                     </div>
 
-                                                    <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Email</label>
+                                                     <div class="form-group">
+                                                      <label class="col-lg-2 control-label">Alamat</label>
                                                       <div class="col-lg-5">
-                                                        <input type="text" name="Email" id="Email" class="form-control" placeholder="<?php echo $ar->email; ?>" value="<?php echo $ar->email; ?>">
+                                                        <input type="text" name="alamat" id="HP" class="form-control" placeholder="<?php echo $ar->alamat; ?>" value="<?php echo $ar->alamat; ?>">
                                                       </div>
                                                     </div>
 
-                                                    <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Kota</label>
-                                                      <div class="col-lg-5">
-                                                        <input type="text" name="asal_kota" id="asal_kota" class="form-control" placeholder="<?php echo $ar->asal_kota; ?>" value="<?php echo $ar->asal_kota; ?>">
-                                                      </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Provinsi</label>
-                                                      <div class="col-lg-5">
-                                                        <input type="text" name="asal_provinsi" id="asal_provinsi" class="form-control" placeholder="<?php echo $ar->asal_provinsi; ?>" value="<?php echo $ar->asal_provinsi; ?>">
-                                                      </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Line</label>
-                                                      <div class="col-lg-5">
-                                                        <input type="text" name="Line" id="Line" class="form-control" placeholder="<?php echo $ar->line; ?>" value="<?php echo $ar->line; ?>">
-                                                      </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                      <label class="col-lg-2 control-label">twitter</label>
-                                                      <div class="col-lg-5">
-                                                        <input type="text" name="twitter" id="twitter" class="form-control" placeholder="<?php echo $ar->twitter; ?>" value="<?php echo $ar->twitter; ?>">
-                                                      </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                      <label class="col-lg-2 control-label">Facebook</label>
-                                                      <div class="col-lg-5">
-                                                        <input type="text" name="Facebook" id="Facebook" class="form-control" placeholder="<?php echo $ar->facebook; ?>" value="<?php echo $ar->facebook; ?>">
-                                                      </div>
-                                                    </div>
-
+                                                   
 
                                                     <div class="form-group">
                                                       <div class="col-lg-offset-1 col-lg-6">
@@ -304,7 +242,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <a href="javascript:void(0)" onclick="location.href='<?php echo site_url("trainer/hapus/$ar->id"); ?>';"><button class="btn btn-xs btn-danger" data-toggle="tooltip" title="Hapus"><i class="fa fa-times"></i> </button></a>
+                                  <a href="javascript:void(0)" onclick="location.href='<?php echo site_url("user/hapus/$ar->email"); ?>';"><button class="btn btn-xs btn-danger" data-toggle="tooltip" title="Hapus"><i class="fa fa-times"></i> </button></a>
                                   <?php } ?>
 
                                 </td>

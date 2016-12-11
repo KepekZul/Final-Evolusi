@@ -39,6 +39,10 @@
               <i class="fa fa-lock"></i> Login
             </div>
 
+             <?php if($this->session->flashdata('fail')): ?>
+                <div class="col-md-12"><div class="alert alert-danger"><?php echo $this->session->flashdata('fail'); ?></div></div>
+                <?php endif; ?>
+
             <div class="widget-content">
               <div class="padd">
                 <!-- Login form -->

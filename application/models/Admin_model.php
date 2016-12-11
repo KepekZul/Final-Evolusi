@@ -12,7 +12,8 @@ Class Admin_model extends CI_Model{
           $this->db->select('role')
                    ->from('user')
                    ->where('email',$email)
-                   ->where('pass',md5($pass));
+                   ->where('pass',md5($pass))
+                   ->where('hapus', 0);
           $query = $this->db->get();  
 
           $data = $query->result();

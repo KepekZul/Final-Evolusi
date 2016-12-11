@@ -7,52 +7,37 @@ class Trainer extends CI_Controller {
 	{
 		$this->load->model('Trainer_model');
 		$role = $this->session->userdata('role');
-		if ($role == 'trainer') 
+		if($role == NULL || $role == 'user') 
 		{
-			$this->load->view('include/header_trainer');
-			$this->load->view('include/menu_trainer');
+			redirect('home');
 		}
-		elseif ($role == 'admin') 
+		else
 		{
-			$this->load->view('include/header_admin');
-			$this->load->view('include/menu_admin');
-		}
-		elseif ($role == NULL) {
-			redirect('loginform');
+			$data['role'] = $role;
+			$this->load->view('include/header_user', $data);
+			$this->load->view('include/menu_user', $data);
 		}
 
 		$data = array(
 			'trainer' => $this->Trainer_model->list_all_trainer()
 		 );
 		 $this->load->view('trainer/list_trainer', $data);
-
-		if ($role == 'trainer') 
-		{
-			$this->load->view('include/footer_trainer');
-		}
-		elseif ($role == 'admin')
-		{
-			$this->load->view('include/footer_admin');
-		}
+ 		 $this->load->view('include/footer_user');
 	}
 
 	public function data_diri()
 	{
 		$this->load->model('Trainer_model');
 		$role = $this->session->userdata('role');
-		if ($role == 'trainer')
+		if($role == NULL || $role != 'trainer') 
 		{
-			$this->load->view('include/header_trainer');
-			$this->load->view('include/menu_trainer');
+			redirect('home');
 		}
-		elseif ($role == 'admin')
+		elseif($role == 'trainer')
 		{
-			$this->load->view('include/header_admin');
-			$this->load->view('include/menu_admin');
-		}
-		elseif ($role == NULL)
-		{
-			redirect('loginform');
+			$data['role'] = $role;
+			$this->load->view('include/header_user', $data);
+			$this->load->view('include/menu_user', $data);
 		}
 
 		$data = array(
@@ -61,15 +46,7 @@ class Trainer extends CI_Controller {
 		 );
 
 		 $this->load->view('trainer/data_diri', $data);
-
-		if ($role == 'trainer') 
-		{
-			$this->load->view('include/footer_trainer');
-		}
-		elseif ($role == 'admin') 
-		{
-			$this->load->view('include/footer_admin');
-		}
+		 $this->load->view('include/footer_user');
 	}
 
 	public function update_trainer()
@@ -120,7 +97,7 @@ class Trainer extends CI_Controller {
 		}
 		elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 		{
-			redirect('trainer/list');
+			redirect('home');
 		}
 	}
 
@@ -128,26 +105,20 @@ class Trainer extends CI_Controller {
 	{
 		$this->load->model('Trainer_model');
 		$role = $this->session->userdata('role');
-		if ($role == 'trainer') {
-			$this->load->view('include/header_trainer');
-			$this->load->view('include/menu_trainer');
+		if($role == NULL || $role != 'admin') 
+		{
+			redirect('home');
 		}
-		elseif ($role == 'admin') {
-			$this->load->view('include/header_admin');
-			$this->load->view('include/menu_admin');
-		}
-		elseif ($role == NULL) {
-			redirect('loginform');
+		elseif($role == 'admin')
+		{
+			$data['role'] = $role;
+			$this->load->view('include/header_user', $data);
+			$this->load->view('include/menu_user', $data);
 		}
 
 		$this->load->view('trainer/tambah_trainer');
-
-		if ($role == 'trainer') {
-			$this->load->view('include/footer_trainer');
-		}
-		elseif ($role == 'admin') {
-			$this->load->view('include/footer_admin');
-		}
+		$this->load->view('include/footer_user');
+		
 	}
 
 	public function post_trainer()
@@ -190,12 +161,16 @@ class Trainer extends CI_Controller {
 		}
 		elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 		{
-			redirect('trainer/list');
+			redirect('home');
 		}
 	}
 
 	public function hapus_trainer($id)
 	{
+		if($this->session->userdata('role') == NULL ||  $this->session->userdata('role') != 'admin')
+		{
+			redirect('home');
+		}
 		$this->load->model('Trainer_model');
 		$this->Trainer_model->hapus_trainer($id);
 

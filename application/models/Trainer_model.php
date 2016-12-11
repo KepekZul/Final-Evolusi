@@ -47,6 +47,10 @@ Class Trainer_model extends CI_Model{
       $this->db->set('hapus', 1);
       $this->db->where('id', $id);
       $this->db->update('trainer');
+
+      $this->db->set('hapus', 1);
+      $this->db->where('id', $id);
+      $this->db->update('user');
     }
 }
 

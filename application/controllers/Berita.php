@@ -11,7 +11,12 @@ class Berita extends CI_Controller {
 		$jumlah = $this->uri->segment(5);
 
 		$data['aktif'] = "berita";
-		if($this->session->userdata('role') == 'admin')
+		if($this->session->userdata('role') == 'user')
+		{
+			$data['authenticated'] = 3;
+		}
+
+		elseif($this->session->userdata('role') == 'admin')
 		{
 			$data['authenticated'] = 2;
 		}
@@ -41,7 +46,12 @@ class Berita extends CI_Controller {
 		$this->load->model('Berita_model');
 		$data['aktif'] = "berita";
 
-		if($this->session->userdata('role') == 'admin')
+		if($this->session->userdata('role') == 'user')
+		{
+			$data['authenticated'] = 3;
+		}
+
+		elseif($this->session->userdata('role') == 'admin')
 		{
 			$data['authenticated'] = 2;
 		}
@@ -70,54 +80,41 @@ class Berita extends CI_Controller {
 	{
 		$this->load->model('Berita_model');
 		$role = $this->session->userdata('role');
-		if ($role == 'trainer') {
-			$this->load->view('include/header_trainer');
-			$this->load->view('include/menu_trainer');
+		if($role == NULL || $role == 'user') 
+		{
+			redirect('home');
 		}
-		elseif ($role == 'admin') {
-			$this->load->view('include/header_admin');
-			$this->load->view('include/menu_admin');
+		else
+		{
+			$data['role'] = $role;
+			$this->load->view('include/header_user', $data);
+			$this->load->view('include/menu_user', $data);
 		}
-		elseif ($role == NULL) {
-			$this->load->view('admin/login');
-		}
+
 		$data = array(
 			'berita' => $this->Berita_model->list_all_berita()
 		 );
 		 $this->load->view('berita/list_berita', $data);
-
-		if ($role == 'trainer') {
-			$this->load->view('include/footer_trainer');
-		}
-		elseif ($role == 'admin') {
-			$this->load->view('include/footer_admin');
-		}
+		$this->load->view('include/footer_user');
 	}
 
 	public function tambah_berita()
 	{
 		$this->load->model('Berita_model');
 		$role = $this->session->userdata('role');
-		if ($role == 'trainer') {
-			$this->load->view('include/header_trainer');
-			$this->load->view('include/menu_trainer');
+		if($role == NULL || $role == 'user') 
+		{
+			redirect('home');
 		}
-		elseif ($role == 'admin') {
-			$this->load->view('include/header_admin');
-			$this->load->view('include/menu_admin');
-		}
-		elseif ($role == NULL) {
-			$this->load->view('admin/login');
+		else
+		{
+			$data['role'] = $role;
+			$this->load->view('include/header_user', $data);
+			$this->load->view('include/menu_user', $data);
 		}
 
 		$this->load->view('berita/tambah_berita');
-
-		if ($role == 'trainer') {
-			$this->load->view('include/footer_trainer');
-		}
-		elseif ($role == 'admin') {
-			$this->load->view('include/footer_admin');
-		}
+		$this->load->view('include/footer_user');
 	}
 
 	public function post_berita()
@@ -185,9 +182,9 @@ class Berita extends CI_Controller {
 
 	public function hapus_berita($id)
 	{
-		if($this->session->userdata('role') == NULL)
+		if($this->session->userdata('role') == NULL ||  $this->session->userdata('role') == 'user')
 		{
-			redirect('loginform');
+			redirect('home');
 		}
 
 		$this->load->model('Berita_model');
