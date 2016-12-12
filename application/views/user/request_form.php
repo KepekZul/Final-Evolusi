@@ -7,7 +7,7 @@
 
     <!-- Breadcrumb -->
     <div class="bread-crumb pull-right">
-      <a href="javascript:void(0)" onclick="location.href='<?php echo site_url("trainer/list"); ?>';"><i class="fa fa-home"></i>Pengguna</a>
+      <a href="javascript:void(0)" onclick="location.href='#';"><i class="fa fa-home"></i>Pengguna</a>
       <!-- Divider -->
       <span class="divider">/</span>
       <a href="javascript:void(0)" onclick="location.href='#';" class="bread-current">Request Training</a>
