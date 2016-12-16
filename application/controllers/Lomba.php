@@ -173,7 +173,33 @@ class Lomba extends CI_Controller {
 			$kategori = $this->input->post('kategori');
 			$isi = $this->input->post('isi');
 
-			$this->Lomba_model->update_lomba($id, $judul, $kategori, $isi);
+			$part = substr($judul, 0, 29);
+			$part2 = str_replace(' ', '_', "$part");
+			//start upload foto
+			$this->load->library('upload');
+			$nmfile = "FL_".$part2.".jpg";
+			$dbname = "lomba/FL_".$part2.".jpg";
+			$config['upload_path'] = './assets/images/lomba'; //path folder
+			$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
+			$config['max_size'] = '2500'; //maksimum besar file 2M
+			//$config['max_width']  = '1288'; //lebar maksimum 1288 px
+			//$config['max_height']  = '768'; //tinggi maksimu 768 px
+			$config['file_name'] = $nmfile; //nama yang terupload nantinya
+
+			$this->upload->initialize($config);
+			$this->upload->overwrite = true;
+
+			if($_FILES['foto']['name'])
+			{
+				if ($this->upload->do_upload('foto'))
+				{
+					$gbr = $this->upload->data();
+					$this->session->set_userdata('foto', $gbr['file_name']);
+				}
+				//end of upload foto
+			}
+
+			$this->Lomba_model->update_lomba($id, $judul, $kategori, $isi, $dbname);
 
 			redirect('lomba/list');
 		}

@@ -86,12 +86,13 @@ Class Artikel_model extends CI_Model{
       $this->db->insert('artikel', $data);
     }
 
-    public function update_artikel($id, $judul, $kategori, $isi)
+    public function update_artikel($id, $judul, $kategori, $isi, $nmfile)
     {
       $data = array(
         'judul' => $judul,
         'kategori' => $kategori,
-        'isi' => $isi
+        'isi' => $isi,
+        'foto' => $nmfile
       );
 
       $this->db->where('id', $id);

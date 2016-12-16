@@ -68,7 +68,7 @@
                                   <div class="modal-content">
                                     <div class="modal-header">
                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                      <h4 class="modal-title">Edit User</h4>
+                                      <h4 class="modal-title">Edit Artike</h4>
                                     </div>
                                     <div class="modal-body">
                                       <div class="row">
@@ -79,7 +79,7 @@
 
                                               <br />
                                               <!-- Form starts.  -->
-                                              <form class="form-horizontal" role="form" action="<?php echo site_url("artikel/update"); ?>" method="post">
+                                              <form class="form-horizontal" role="form" action="<?php echo site_url("artikel/update"); ?>" method="post" enctype="multipart/form-data">
 
                                                 <div class="form-group">
                                                   <label class="col-lg-2 control-label">ID</label>
@@ -104,7 +104,13 @@
                                                            placeholder="<?php echo $ar->kategori; ?>" value="<?php echo $ar->kategori; ?>">
                                                   </div>
                                                 </div>
-
+                                                <div class="form-group">
+                                                  <label class="col-lg-2 control-label">Foto</label>
+                                                  <div class="col-lg-5">
+                                                    <input type="file" name="foto" id="foto"> 
+                                                  </div>
+                                                </div>
+                                                      
                                                 <div class="text-area">
                                                   <!-- Add the "cleditor" to textarea to add CLeditor -->
                                                   <textarea class="cleditor" name="isi"><?php echo $ar->isi ?></textarea>

@@ -44,25 +44,35 @@
                     <div class="col-md-8">
                         <input type="text" name="judul" class="form-control col-lg-4" placeholder="Masukan Judul artikel">
                     </div>
-
                   </div>
+
                   <br />
                   <div class="row">
                     <div class="col-md-1">
-                        <label>kategori</label>
+                        <label>Kategori</label>
                     </div>
                     <div class="col-md-3">
                         <input type="text" name="kategori" class="form-control col-lg-4" placeholder="Masukan Kategori">
                     </div>
-
                   </div>
+
                   <br />
-                  <input type="file" name="foto" id="foto">
+                  <div class="row">
+                    <div class="col-md-1">
+                        <label>Foto</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="file" name="foto" id="foto">
+                    </div>
+                  </div>
+
+                  <br />
+                  <label>Isi Artikel</label>
                   <div class="text-area">
                     <!-- Add the "cleditor" to textarea to add CLeditor -->
-                    <textarea class="cleditor" name="isi"></textarea>
+                    <textarea class="cleditor" name="isi" ></textarea>
                   </div>
-
+                  
                   <input type="submit" name="submit" value="submit">
                   <div class="clearfix"></div>
 

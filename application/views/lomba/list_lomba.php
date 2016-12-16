@@ -78,7 +78,7 @@
 
                                               <br />
                                               <!-- Form starts.  -->
-                                              <form class="form-horizontal" role="form" action="<?php echo site_url("lomba/update"); ?>" method="post">
+                                              <form class="form-horizontal" role="form" action="<?php echo site_url("lomba/update"); ?>" method="post" enctype="multipart/form-data">
 
                                                 <div class="form-group">
                                                   <label class="col-lg-2 control-label">ID</label>
@@ -98,6 +98,13 @@
                                                   <label class="col-lg-2 control-label">Kategori</label>
                                                   <div class="col-lg-5">
                                                     <input type="text" name="kategori" id="kategori" class="form-control" placeholder="<?php echo $ar->kategori; ?>" value="<?php echo $ar->kategori; ?>">
+                                                  </div>
+                                                </div>
+
+                                                 <div class="form-group">
+                                                  <label class="col-lg-2 control-label">Foto</label>
+                                                  <div class="col-lg-5">
+                                                    <input type="file" name="foto" id="foto">
                                                   </div>
                                                 </div>
 
